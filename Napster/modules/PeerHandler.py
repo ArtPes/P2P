@@ -1,7 +1,7 @@
 # coding=utf-8
 import threading
 import socket
-from modules import helpers
+from modules.helpers import *
 
 
 class PeerHandler(threading.Thread):
@@ -115,7 +115,7 @@ class PeerHandler(threading.Thread):
                                         self.conn.sendall(msg)                      # Invio di
                                         chunks_sent += 1
 
-                                        helpers.update_progress(chunks_sent, n_chunks, 'Uploading ' + file.name)      # Stampa a video del progresso dell'upload
+                                        update_progress(chunks_sent, n_chunks, 'Uploading ' + file.name)      # Stampa a video del progresso dell'upload
 
                                         buff = file.read(chunk_size)                # Lettura chunk successivo
                                     except IOError:

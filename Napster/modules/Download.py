@@ -1,8 +1,8 @@
 # coding=utf-8
 import socket
 import hashlib
-from modules import Connection
-from modules import helpers
+from modules.Connection import *
+from modules.helpers import *
 
 
 def recvall(socket, chunk_size):
@@ -47,7 +47,7 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
     :type directory: object
     """
 
-    c = Connection.Connection(host_ipv4, host_ipv6, host_port)                      # Inizializzazione della connessione verso il peer
+    c = Connection(host_ipv4, host_ipv6, host_port)                      # Inizializzazione della connessione verso il peer
     c.connect()
     download = c.socket
 
@@ -75,7 +75,7 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
                 if i == 0:
                     print ('Download started...')
 
-                helpers.update_progress(i, n_chunks, 'Downloading ' + fout.name)    # Stampa a video del progresso del download
+                update_progress(i, n_chunks, 'Downloading ' + fout.name)    # Stampa a video del progresso del download
 
                 try:
                     chunk_length = recvall(download, 5)                             # Ricezione dal peer la lunghezza della parte di file
@@ -95,7 +95,7 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
 
             warns_directory(session_id, file.md5, directory)                        # Invocazione del metododo che segnala il download alla directory
             print ('Checking file integrity...')
-            downloaded_md5 = helpers.hashfile(open(fout.name, 'rb'), hashlib.md5()) # Controllo dell'integrità del file appena scarcato tramite md5
+            downloaded_md5 = hashfile(open(fout.name, 'rb'), hashlib.md5()) # Controllo dell'integrità del file appena scarcato tramite md5
             if file.md5 == downloaded_md5:
                 print ('The downloaded file is intact')
             else:

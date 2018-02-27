@@ -1,7 +1,7 @@
 # coding=utf-8
 import threading
-from modules import PeerHandler
-from modules import Connection
+from modules.PeerHandler import *
+from modules.Connection import *
 import select
 
 
@@ -86,7 +86,7 @@ class PeerServer(threading.Thread):
         Gestisce le connessioni in entrata creando per ognuna un nuovo thread che effettua l'upload del file richiesto
         """
 
-        c = Connection.Connection(self.ps_ipv4, self.ps_ipv6, self.ps_port) # Inizializzazione della socket in ascolto per le richieste degli altri peer
+        c = Connection(self.ps_ipv4, self.ps_ipv6, self.ps_port) # Inizializzazione della socket in ascolto per le richieste degli altri peer
         c.listen_v4()
         self.ps_socket_v4 = c.socket
         c.listen_v6()
@@ -102,7 +102,7 @@ class PeerServer(threading.Thread):
                             conn, addr = self.ps_socket_v4.accept()                         # Attesa della connessione di un peer sulla socket ipv4
                             print ('Peer connected on: ', addr)
 
-                            peer = PeerHandler.PeerHandler(conn, addr, self.file_list)      # Creazione di un thread che si occupa dell'upload del file
+                            peer = PeerHandler(conn, addr, self.file_list)      # Creazione di un thread che si occupa dell'upload del file
                             peer.start()
                             self.threads.append(peer)                                       # Inserimento del thread nella lista dei thread attivi
                         except Exception as e:
@@ -113,7 +113,7 @@ class PeerServer(threading.Thread):
                             conn, addr = self.ps_socket_v6.accept()                         # Attesa della connessione di un peer sulla socket ipv4
                             print ('Peer connected on: ', addr)
 
-                            peer = PeerHandler.PeerHandler(conn, addr, self.file_list)      # Creazione di un thread che si occupa dell'upload del file
+                            peer = PeerHandler(conn, addr, self.file_list)      # Creazione di un thread che si occupa dell'upload del file
                             peer.start()
                             self.threads.append(peer)                                       # Inserimento del thread nella lista dei thread attivi
                         except Exception as e:

@@ -1,22 +1,26 @@
 import socket
 import json
-from modules import SharedFile
+from modules.SharedFile import *
 import os
 import hashlib
 from random import randint
-from modules import helpers
+from modules.helpers import *
 
 import threading
 
-
-#TCP_IP = '172.30.8.1'#'127.0.0.1'
-#TCP_IP = 'fc00::8:1'
-#TCP_IP = "127.0.0.1"
-#TCP_IP = '::1'
+# TCP_IP = '172.30.8.1'#'127.0.0.1'
+# TCP_IP = 'fc00::8:1'
+# TCP_IP = "127.0.0.1"
+# TCP_IP = '::1'
 import select
 import sys
+
+
 class Client(threading.Thread):
-    def __init__(self, (address, client)):
+    # def __init__(self,(address, client)):   !!!DA CONTROLLARE SE QUESTA NOTAZIONE DELLE TUPLE VADA BENE!!!
+    def __init__(self, data):
+        address = data[0]
+        client = data[1]
         threading.Thread.__init__(self)
         self.client = client
         self.address = address
@@ -29,12 +33,11 @@ class Client(threading.Thread):
             cmd = conn.recv(4)
 
             if cmd == "FIND":
-                print ("received command: " + str(cmd))
+                print("received command: " + str(cmd))
                 sessionId = conn.recv(16)
-                print ("received sessionID: " + str(sessionId))
+                print("received sessionID: " + str(sessionId))
                 term = conn.recv(20)
-                print ("received search term: " + str(term))
-
+                print("received search term: " + str(term))
 
                 #  Finta risposta dalla directory
                 #  Number of different md5
@@ -44,7 +47,7 @@ class Client(threading.Thread):
 
                 for root, dirs, files in os.walk("./share"):
                     for file in files:
-                        filemd5 = helpers.hashfile(open("./share/" + file, 'rb'), hashlib.md5())
+                        filemd5 = hashfile(open("./share/" + file, 'rb'), hashlib.md5())
                         filename = file.ljust(100)
                         copies = str(2).zfill(3)
                         response += filemd5
@@ -59,36 +62,36 @@ class Client(threading.Thread):
 
             elif cmd == "LOGI":
                 msg = conn.recv(55)
-                print ("received command: " + str(cmd))
-                print ("received ipv4: " + msg[:4])
-                print ("received ipv6: " + msg[4:])
-                print ("received porta: ")
+                print("received command: " + str(cmd))
+                print("received ipv4: " + msg[:4])
+                print("received ipv6: " + msg[4:])
+                print("received porta: ")
 
                 response = 'ALGI' + '1234567891234567'
-                print (response)
+                print(response)
                 conn.sendall(response)
 
             elif cmd == "GREG":
                 response = 'ADRE' + '002'
-                print (response)
+                print(response)
                 conn.send(response)
 
             elif cmd == 'LOGO':
-                print ("received command: " + str(cmd))
+                print("received command: " + str(cmd))
                 sessionid = conn.recv(16)
-                print ("peer: " + sessionid)
+                print("peer: " + sessionid)
                 response = 'ALGO' + '003'
-                print (response)
+                print(response)
                 conn.send(response)
 
             elif cmd == 'ADDF':
                 response = 'RADD' + '003'
-                print (response)
+                print(response)
                 conn.send(response)
 
             elif cmd == 'DELF':
                 response = 'RDEL' + '003'
-                print (response)
+                print(response)
                 conn.send(response)
 
             elif cmd == 'RETR':
@@ -96,15 +99,15 @@ class Client(threading.Thread):
 
                 for root, dirs, files in os.walk("share"):
                     for file in files:
-                        fileMd5 = helpers.hashfile(open("share/" + file, 'rb'), hashlib.md5())
+                        fileMd5 = hashfile(open("share/" + file, 'rb'), hashlib.md5())
                         if fileRemoteMd5 == fileMd5:
-                            print ("Nome file dal client: ", file)
+                            print("Nome file dal client: ", file)
                             length = os.stat("share/" + file).st_size
-                            print ("Lunghezza file", length)
+                            print("Lunghezza file", length)
                             numChunks = length / 1024 + 1
 
                             strChunks = str(numChunks).zfill(6)
-                            conn.send('ARET'+strChunks)
+                            conn.send('ARET' + strChunks)
 
                             msg = ''
                             with open("share/" + file, 'rb') as f:
@@ -119,8 +122,10 @@ class Client(threading.Thread):
                             conn.send(msg)
             elif cmd == 'DREG':
                 conn.recv(48)
-                print (response)
+                print(response)
                 conn.send('ADRE' + str(5).zfill(5))
+
+
 class Server:
     def __init__(self):
         self.host = ''
@@ -133,26 +138,29 @@ class Server:
     def open_socket(self):
         try:
             self.server = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
-            self.server.bind((self.host,self.port))
+            self.server.bind((self.host, self.port))
             self.server.listen(5)
-        except socket.error as (value,message):
+        # except socket.error as (value, message): !!!DA CONTROLLARE SE QUESTA NOTAZIONE DELLE TUPLE VADA BENE!!!
+        except socket.error as error:
+            (value, message) = error
             if self.server:
                 self.server.close()
-            print ("Could not open socket: " + message)
+            print("Could not open socket: " + message)
             sys.exit(1)
-            print ('Ascolto peer sulla porta', self.port)
-        except socket.error as (value,message):
+            print('Ascolto peer sulla porta', self.port)
+        except socket.error as error:
+            (value, message) = error
             if self.server:
                 self.server.close()
-            print ("Could not open socket: " + message)
+            print("Could not open socket: " + message)
             sys.exit(1)
 
     def run(self):
         self.open_socket()
-        input = [self.server,sys.stdin]
+        input = [self.server, sys.stdin]
         running = 1
         while running:
-            inputready,outputready,exceptready = select.select(input,[],[])
+            inputready, outputready, exceptready = select.select(input, [], [])
 
             for s in inputready:
 
@@ -172,6 +180,7 @@ class Server:
         self.server.close()
         for c in self.threads:
             c.join()
+
 
 s = Server()
 s.run()
