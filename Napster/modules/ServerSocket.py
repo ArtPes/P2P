@@ -1,9 +1,8 @@
 import socket, errno
 import os
 import sys
-from thread import *
+from _thread import *
 from multiprocessing import Process
-from thread import *
 import hashlib
 import base64
 
@@ -48,17 +47,17 @@ def clientthread(conn):
                                 conn.send(strLenChunk)
                                 conn.send(l)
                                 l = f.read(1024)
-        except socket.error, e:
+        except socket.error as e:
             if isinstance(e.args, tuple):
-                print "errno is %d" % e[0]
+                print ("errno is %d" % e[0])
                 if e[0] == errno.EPIPE:
                    # remote peer disconnected
-                   print "Detected remote disconnect"
+                   print ("Detected remote disconnect")
                 else:
                    # determine and handle different error
                    pass
             else:
-                print "socket error ", e
+                print ("socket error ", e)
             conn.close()
 
 
@@ -88,13 +87,13 @@ def start_server():
                 continue
             break
         if s is None:
-            print 'could not open socket'
+            print ('could not open socket')
             sys.exit(1)
 
         while True:
             #wait to accept a connection - blocking call
             conn, addr = s.accept()
-            print 'Connected by', addr
+            print ('Connected by', addr)
 
             #start new thread takes 1st argument as a function name to be run
             start_new_thread(clientthread ,(conn,))

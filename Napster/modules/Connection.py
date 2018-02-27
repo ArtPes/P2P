@@ -49,9 +49,9 @@ class Connection:
             try:
                 self.socket.connect((self.ipv4, self.port))                                 # inizializzazione della connessione
                 print ("Succesfully connected to: " + self.ipv4 + " " + str(self.port))
-            except socket.error, msg:
+            except socket.error as msg:
                 print ("Connection error ipv4!\nTerminated.\nSocket.error : %s" % msg)
-                print self.ipv4 + str(self.port)
+                print (self.ipv4 + str(self.port))
 
         else:
             self.socket = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)                # creazione socket ipv6
@@ -59,9 +59,9 @@ class Connection:
             try:
                 self.socket.connect((self.ipv6, self.port))                                 # inizializzazione della connessione
                 print ("Succesfully connected to: " + self.ipv6 + " " + str(self.port))
-            except socket.error, msg:
+            except socket.error as msg:
                 print ("Connection error ipv6!\nTerminated.\nSocket.error : %s" % msg)
-                print self.ipv4 + str(self.port)
+                print (self.ipv4 + str(self.port))
 
     '''
     def listen(self):
@@ -103,10 +103,10 @@ class Connection:
         try:
             self.socket.bind((self.ipv4, self.port))                                    # inizializzazione della connessione
             self.socket.listen(5)
-            print "Listening on :" + self.ipv4 + str(self.port)
-        except socket.error, msg:
-            print "Connection error ipv4!\nTerminated.\nSocket.error : %s" % str(msg)
-            print self.ipv4 + " " + str(self.port)
+            print ("Listening on :" + self.ipv4 + str(self.port))
+        except socket.error as msg:
+            print ("Connection error ipv4!\nTerminated.\nSocket.error : %s" % str(msg))
+            print (self.ipv4 + " " + str(self.port))
 
     def listen_v6(self):
         """
@@ -118,7 +118,7 @@ class Connection:
         try:
             self.socket.bind((self.ipv6, self.port))                                    # inizializzazione della connessione
             self.socket.listen(5)
-            print "Listening on :" + self.ipv6 + str(self.port)
-        except socket.error, msg:
-            print "Connection error ipv6!\nTerminated.\nSocket.error : %s" % str(msg)
-            print self.ipv6 + " " + str(self.port)
+            print ("Listening on :" + self.ipv6 + str(self.port))
+        except socket.error as msg:
+            print ("Connection error ipv6!\nTerminated.\nSocket.error : %s" % str(msg))
+            print (self.ipv6 + " " + str(self.port))

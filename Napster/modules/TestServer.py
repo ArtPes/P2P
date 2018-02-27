@@ -1,10 +1,10 @@
 import socket
 import json
-import SharedFile
+from modules import SharedFile
 import os
 import hashlib
 from random import randint
-import helpers
+from modules import helpers
 
 import threading
 
@@ -16,7 +16,7 @@ import threading
 import select
 import sys
 class Client(threading.Thread):
-    def __init__(self,(client,address)):
+    def __init__(self, (address, client)):
         threading.Thread.__init__(self)
         self.client = client
         self.address = address
@@ -29,11 +29,11 @@ class Client(threading.Thread):
             cmd = conn.recv(4)
 
             if cmd == "FIND":
-                print "received command: " + str(cmd)
+                print ("received command: " + str(cmd))
                 sessionId = conn.recv(16)
-                print "received sessionID: " + str(sessionId)
+                print ("received sessionID: " + str(sessionId))
                 term = conn.recv(20)
-                print "received search term: " + str(term)
+                print ("received search term: " + str(term))
 
 
                 #  Finta risposta dalla directory
@@ -59,36 +59,36 @@ class Client(threading.Thread):
 
             elif cmd == "LOGI":
                 msg = conn.recv(55)
-                print "received command: " + str(cmd)
-                print "received ipv4: " + msg[:4]
-                print "received ipv6: " + msg[4:]
-                print "received porta: "
+                print ("received command: " + str(cmd))
+                print ("received ipv4: " + msg[:4])
+                print ("received ipv6: " + msg[4:])
+                print ("received porta: ")
 
                 response = 'ALGI' + '1234567891234567'
-                print response
+                print (response)
                 conn.sendall(response)
 
             elif cmd == "GREG":
                 response = 'ADRE' + '002'
-                print response
+                print (response)
                 conn.send(response)
 
             elif cmd == 'LOGO':
-                print "received command: " + str(cmd)
+                print ("received command: " + str(cmd))
                 sessionid = conn.recv(16)
-                print "peer: " + sessionid
+                print ("peer: " + sessionid)
                 response = 'ALGO' + '003'
-                print response
+                print (response)
                 conn.send(response)
 
             elif cmd == 'ADDF':
                 response = 'RADD' + '003'
-                print response
+                print (response)
                 conn.send(response)
 
             elif cmd == 'DELF':
                 response = 'RDEL' + '003'
-                print response
+                print (response)
                 conn.send(response)
 
             elif cmd == 'RETR':
@@ -98,9 +98,9 @@ class Client(threading.Thread):
                     for file in files:
                         fileMd5 = helpers.hashfile(open("share/" + file, 'rb'), hashlib.md5())
                         if fileRemoteMd5 == fileMd5:
-                            print "Nome file dal client: ", file
+                            print ("Nome file dal client: ", file)
                             length = os.stat("share/" + file).st_size
-                            print "Lunghezza file", length
+                            print ("Lunghezza file", length)
                             numChunks = length / 1024 + 1
 
                             strChunks = str(numChunks).zfill(6)
@@ -119,7 +119,7 @@ class Client(threading.Thread):
                             conn.send(msg)
             elif cmd == 'DREG':
                 conn.recv(48)
-                print response
+                print (response)
                 conn.send('ADRE' + str(5).zfill(5))
 class Server:
     def __init__(self):
@@ -135,16 +135,16 @@ class Server:
             self.server = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
             self.server.bind((self.host,self.port))
             self.server.listen(5)
-        except socket.error, (value,message):
+        except socket.error as (value,message):
             if self.server:
                 self.server.close()
-            print "Could not open socket: " + message
+            print ("Could not open socket: " + message)
             sys.exit(1)
-            print 'Ascolto peer sulla porta', self.port
-        except socket.error, (value,message):
+            print ('Ascolto peer sulla porta', self.port)
+        except socket.error as (value,message):
             if self.server:
                 self.server.close()
-            print "Could not open socket: " + message
+            print ("Could not open socket: " + message)
             sys.exit(1)
 
     def run(self):

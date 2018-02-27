@@ -8,28 +8,28 @@ from modules import PeerServer
 p = Peer.Peer()
 
 while p.session_id is None:
-    print 'Select one of the following options (\'e\' to exit):'
-    print '1: Log In'
+    print ('Select one of the following options (\'e\' to exit):')
+    print ('1: Log In')
     int_option = None
     while int_option is None:
         try:
-            option = raw_input()
+            option = input()
         except SyntaxError:
             option = None
 
         if option is None:
-            print 'Please select an option'
+            print ('Please select an option')
         elif option == 'e':
-            print 'Bye bye'
+            print ('Bye bye')
             sys.exit()          # Interrompo l'esecuzione
         else:
             try:
                 int_option = int(option)
             except ValueError:
-                print "A number is required"
+                print ("A number is required")
 
     if int_option != 1:
-        print 'Option ' + str(option) + ' not available'
+        print ('Option ' + str(option) + ' not available')
     else:
         p.login()           # Effettua il login
 
@@ -41,26 +41,26 @@ while p.session_id is None:
             break
 
         while p.session_id is not None:     # Utente loggato
-            print "\nSelect one of the following options:"
-            print "1: Add File"
-            print "2: Remove File"
-            print "3: Search File"
-            print "4: LogOut"
+            print ("\nSelect one of the following options:")
+            print ("1: Add File")
+            print ("2: Remove File")
+            print ("3: Search File")
+            print ("4: LogOut")
 
             int_option = None
             while int_option is None:
                 try:
-                    option = raw_input()    # Input da tastiera
+                    option = input()    # Input da tastiera
                 except SyntaxError:
                     option = None
 
                 if option is None:
-                    print 'Please select an option'
+                    print ('Please select an option')
                 else:
                     try:
                         int_option = int(option)
                     except ValueError:
-                        print "A number is required"
+                        print ("A number is required")
 
             if int_option == 1:
                 p.share()           # Aggiunta di un file alla directory
@@ -73,6 +73,6 @@ while p.session_id is None:
                 peerserver.stop()   # Terminazione del server multithread che risponde alle richieste di download
                 sys.exit()          # Interrompo l'esecuzione
             else:
-                print 'Option ' + str(int_option) + ' not available'
+                print ('Option ' + str(int_option) + ' not available')
 
 

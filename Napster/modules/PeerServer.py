@@ -1,7 +1,7 @@
 # coding=utf-8
 import threading
-import PeerHandler
-import Connection
+from modules import PeerHandler
+from modules import Connection
 import select
 
 
@@ -100,26 +100,26 @@ class PeerServer(threading.Thread):
                     if s == self.ps_socket_v4:                                              # Controllo della provenienza della richiesta
                         try:
                             conn, addr = self.ps_socket_v4.accept()                         # Attesa della connessione di un peer sulla socket ipv4
-                            print 'Peer connected on: ', addr
+                            print ('Peer connected on: ', addr)
 
                             peer = PeerHandler.PeerHandler(conn, addr, self.file_list)      # Creazione di un thread che si occupa dell'upload del file
                             peer.start()
                             self.threads.append(peer)                                       # Inserimento del thread nella lista dei thread attivi
                         except Exception as e:
-                            print "Error: "+Exception+" / " + e.message
+                            print ("Error: "+Exception+" / " + e.message)
 
                     elif s == self.ps_socket_v6:                                            # Controllo della provenienza della richiesta
                         try:
                             conn, addr = self.ps_socket_v6.accept()                         # Attesa della connessione di un peer sulla socket ipv4
-                            print 'Peer connected on: ', addr
+                            print ('Peer connected on: ', addr)
 
                             peer = PeerHandler.PeerHandler(conn, addr, self.file_list)      # Creazione di un thread che si occupa dell'upload del file
                             peer.start()
                             self.threads.append(peer)                                       # Inserimento del thread nella lista dei thread attivi
                         except Exception as e:
-                            print "Error: "+Exception+" / " + e.message
+                            print ("Error: "+Exception+" / " + e.message)
         except Exception as e:
-            print 'Error: ' + e.message
+            print ('Error: ' + e.message)
 
     def stop(self):
         """

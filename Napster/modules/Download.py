@@ -1,8 +1,8 @@
 # coding=utf-8
 import socket
 import hashlib
-import Connection
-import helpers
+from modules import Connection
+from modules import helpers
 
 
 def recvall(socket, chunk_size):
@@ -52,15 +52,15 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
     download = c.socket
 
     msg = 'RETR' + file.md5
-    print 'Download Message: ' + msg
+    print ('Download Message: ' + msg)
     try:
         download.send(msg)                                                          # Richiesta di download al peer
-        print 'Message sent, waiting for response...'
+        print ('Message sent, waiting for response...')
         response_message = download.recv(10)                                        # Risposta del peer, deve contenere il codice ARET seguito dalle parti del file
     except socket.error as e:
-        print 'Error: ' + e.message
+        print ('Error: ' + e.message)
     except Exception as e:
-        print 'Error: ' + e.message
+        print ('Error: ' + e.message)
     else:
         if response_message[:4] == 'ARET':
             n_chunks = response_message[4:10]                                       # Numero di parti del file da scaricare
@@ -73,7 +73,7 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
 
             for i in range(0, n_chunks):
                 if i == 0:
-                    print 'Download started...'
+                    print ('Download started...')
 
                 helpers.update_progress(i, n_chunks, 'Downloading ' + fout.name)    # Stampa a video del progresso del download
 
@@ -82,26 +82,26 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
                     data = recvall(download, int(chunk_length))                     # Ricezione dal peer la parte del file
                     fout.write(data)                                                # Scrittura della parte su file
                 except socket.error as e:
-                    print 'Socket Error: ' + e.message
+                    print ('Socket Error: ' + e.message)
                     break
                 except IOError as e:
-                    print 'IOError: ' + e.message
+                    print ('IOError: ' + e.message)
                     break
                 except Exception as e:
-                    print 'Error: ' + e.message
+                    print ('Error: ' + e.message)
                     break
             fout.close()                                                            # Chiusura file a scrittura ultimata
-            print '\nDownload completed'
+            print ('\nDownload completed')
 
             warns_directory(session_id, file.md5, directory)                        # Invocazione del metododo che segnala il download alla directory
-            print 'Checking file integrity...'
+            print ('Checking file integrity...')
             downloaded_md5 = helpers.hashfile(open(fout.name, 'rb'), hashlib.md5()) # Controllo dell'integrità del file appena scarcato tramite md5
             if file.md5 == downloaded_md5:
-                print 'The downloaded file is intact'
+                print ('The downloaded file is intact')
             else:
-                print 'Something is wrong. Check the downloaded file'
+                print ('Something is wrong. Check the downloaded file')
         else:
-            print 'Error: unknown response from directory.\n'
+            print ('Error: unknown response from directory.\n')
 
 
 def warns_directory(session_id, file_md5, directory):
@@ -119,19 +119,19 @@ def warns_directory(session_id, file_md5, directory):
     cmd = 'DREG' + session_id + file_md5
     try:
         directory.sendall(cmd)                                                      # Notifica del download alla directory
-        print 'Message sent, waiting for response...'
+        print ('Message sent, waiting for response...')
         response_message = directory.recv(9)                                        # Risposta della directory, deve contenere il codice ADRE seguito dal numero totale di download
-        print 'Directory responded: ' + response_message
+        print ('Directory responded: ' + response_message)
     except socket.error as e:
-        print 'Socket Error: ' + e.message
+        print ('Socket Error: ' + e.message)
     except Exception as e:
-        print 'Error: ' + e.message
+        print ('Error: ' + e.message)
 
     num_down = int(response_message[-5:])
     if response_message[0:4] == 'ADRE' and isinstance(num_down, int):
-        print 'Other peers downloaded ' + str(num_down) + ' copies of the same file'
+        print ('Other peers downloaded ' + str(num_down) + ' copies of the same file')
     else:
-        print 'Error: unknown response from directory.\n'
+        print ('Error: unknown response from directory.\n')
 
 
 
