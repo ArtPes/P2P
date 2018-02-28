@@ -60,7 +60,7 @@ class PeerHandler(threading.Thread):
         """
 
         try:
-            cmd = self.conn.recv(4)                                                 # Ricezione del comando di download dal peer, deve contenere RETR
+            cmd = self.conn.recv(4).decode('ascii')                                               # Ricezione del comando di download dal peer, deve contenere RETR
         except socket.error as e:
             print ('Socket Error: ' + e.message)
         except Exception as e:
@@ -68,7 +68,7 @@ class PeerHandler(threading.Thread):
         else:
             if cmd == "RETR":
                 try:
-                    self.md5 = self.conn.recv(32)                                   # Ricezione dell'md5 del file da inviare
+                    self.md5 = self.conn.recv(32).decode('ascii')                                   # Ricezione dell'md5 del file da inviare
                     print ('Received md5: ' + self.md5)
                 except socket.error as e:
                     print ('Socket Error: ' + e.message)
@@ -106,13 +106,13 @@ class PeerHandler(threading.Thread):
 
                                 msg = 'ARET' + str(n_chunks).zfill(6)               # Risposta alla richiesta di download, deve contenere ARET ed il numero di chunks che saranno inviati
                                 print ('Upload Message: ' + msg)
-                                self.conn.sendall(msg)
+                                self.conn.sendall(msg.encode('utf-8'))
                                 print ('Sending chunks...')
 
                                 while len(buff) == chunk_size:                      # Invio dei chunks
                                     try:
                                         msg = str(len(buff)).zfill(5) + buff
-                                        self.conn.sendall(msg)                      # Invio di
+                                        self.conn.sendall(msg.encode('utf-8'))                      # Invio di
                                         chunks_sent += 1
 
                                         update_progress(chunks_sent, n_chunks, 'Uploading ' + file.name)      # Stampa a video del progresso dell'upload
@@ -122,7 +122,7 @@ class PeerHandler(threading.Thread):
                                         print ("Connection error due to the death of the peer!!!\n")
                                 if len(buff) != 0:                                  # Invio dell'eventuale resto, se più piccolo di chunk_size
                                     msg = str(len(buff)).zfill(5) + buff
-                                    self.conn.sendall(msg)
+                                    self.conn.sendall(msg.encode('utf-8'))
                                 print ("\nUpload Completed")
                                 file.close()                                        # Chiusura del file
                             except EOFError:

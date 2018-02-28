@@ -7,7 +7,7 @@ import hashlib
 import socket
 from modules.Connection import *
 from modules.helpers import *
-
+from modules import config
 
 
 class Peer(object):
@@ -27,12 +27,12 @@ class Peer(object):
     """
 
     session_id = None
-    my_ipv4 = "127.000.000.001"
-    my_ipv6 = "0000:0000:0000:0000:0000:0000:0000:0001"
-    my_port = "06000"
-    dir_ipv4 = "127.000.000.001"
-    dir_ipv6 = "0000:0000:0000:0000:0000:0000:0000:0001"
-    dir_port = "03000"
+    my_ipv4 = config.CONFIG['my_ipv4']
+    my_ipv6 = config.CONFIG['my_ipv6']
+    my_port = config.CONFIG['my_port']
+    dir_ipv4 = config.CONFIG['dir_ipv4']
+    dir_ipv6 = config.CONFIG['dir_ipv6']
+    dir_port = config.CONFIG['dir_port']
     files_list = []
     directory = None
 
@@ -93,11 +93,11 @@ class Peer(object):
 
         response_message = None
         try:
-            self.directory.send(msg)  # Richeista di logout
+            self.directory.send(msg.encode('utf-8'))  # Richeista di logout
             print('Message sent, waiting for response...')
 
             response_message = self.directory.recv(
-                7)  # Risposta della directory, deve contenere ALGO e il numero di file che erano stati condivisi
+                7).decode('ascii')  # Risposta della directory, deve contenere ALGO e il numero di file che erano stati condivisi
             print('Directory responded: ' + response_message)
         except socket.error as msg:
             print('Socket Error: ' + str(msg))
@@ -153,11 +153,11 @@ class Peer(object):
                             response_message = None
                             try:
                                 self.directory.send(
-                                    msg)  # Richeista di aggiunta del file alla directory, deve contenere session id, md5 e nome del file
+                                    msg.encode('utf-8'))  # Richeista di aggiunta del file alla directory, deve contenere session id, md5 e nome del file
                                 print('Message sent, waiting for response...')
 
                                 response_message = self.directory.recv(
-                                    7)  # Risposta della directory, deve contenere AADD ed il numero di copie del file già condivise
+                                    7).decode('ascii')  # Risposta della directory, deve contenere AADD ed il numero di copie del file già condivise
                                 print('Directory responded: ' + response_message)
                             except socket.error as msg:
                                 print('Socket Error: ' + str(msg))
@@ -211,11 +211,11 @@ class Peer(object):
                             response_message = None
                             try:
                                 self.directory.send(
-                                    msg)  # Richiesta di rimozione del file dalla directory, deve contenere session id e md5
+                                    msg.encode('utf-8'))  # Richiesta di rimozione del file dalla directory, deve contenere session id e md5
                                 print('Message sent, waiting for response...')
 
                                 response_message = self.directory.recv(
-                                    7)  # Risposta della directory, deve contenere ADEL e il numero di copie rimanenti
+                                    7).decode('ascii')  # Risposta della directory, deve contenere ADEL e il numero di copie rimanenti
                                 print('Directory responded: ' + response_message)
                             except socket.error as msg:
                                 print('Socket Error: ' + str(msg))
@@ -252,11 +252,11 @@ class Peer(object):
             response_message = None
             try:
                 self.directory.send(
-                    msg)  # Richeista di ricerca, deve contenere il session id ed il paramentro di ricerca (20 caratteri)
+                    msg.encode('utf-8'))  # Richeista di ricerca, deve contenere il session id ed il paramentro di ricerca (20 caratteri)
                 print('Message sent, waiting for response...')
 
                 response_message = self.directory.recv(
-                    4)  # Risposta della directory, deve contenere AFIN seguito dal numero di identificativi md5
+                    4).decode('ascii')  # Risposta della directory, deve contenere AFIN seguito dal numero di identificativi md5
                 # disponibili e dalla lista di file e peer che li hanno condivisi
                 print('Directory responded: ' + response_message)
             except socket.error as msg:
@@ -269,7 +269,7 @@ class Peer(object):
             else:
                 idmd5 = None
                 try:
-                    idmd5 = self.directory.recv(3)  # Numero di identificativi md5
+                    idmd5 = self.directory.recv(3).decode('ascii')  # Numero di identificativi md5
                 except socket.error as e:
                     print('Socket Error: ' + e.message)
                 except Exception as e:
@@ -292,18 +292,18 @@ class Peer(object):
                                 for idx in range(0, idmd5):  # Per ogni identificativo diverso si ricevono:
                                     # md5, nome del file, numero di copie, elenco dei peer che l'hanno condiviso
 
-                                    file_i_md5 = self.directory.recv(32)  # md5 dell'i-esimo file (32 caratteri)
+                                    file_i_md5 = self.directory.recv(32).decode('ascii')  # md5 dell'i-esimo file (32 caratteri)
                                     file_i_name = self.directory.recv(
-                                        100).strip()  # nome dell'i-esimo file (100 caratteri compresi spazi)
+                                        100).strip().decode('ascii')  # nome dell'i-esimo file (100 caratteri compresi spazi)
                                     file_i_copies = self.directory.recv(
-                                        3)  # numero di copie dell'i-esimo file (3 caratteri)
+                                        3).decode('ascii')  # numero di copie dell'i-esimo file (3 caratteri)
                                     file_owners = []
                                     for copy in range(0, int(
                                             file_i_copies)):  # dati del j-esimo peer che ha condiviso l'i-esimo file
                                         owner_j_ipv4 = self.directory.recv(16).replace("|",
-                                                                                       "")  # indirizzo ipv4 del j-esimo peer
-                                        owner_j_ipv6 = self.directory.recv(39)  # indirizzo ipv6 del j-esimo peer
-                                        owner_j_port = self.directory.recv(5)  # porta del j-esimo peer
+                                                                                       "").decode('ascii')  # indirizzo ipv4 del j-esimo peer
+                                        owner_j_ipv6 = self.directory.recv(39).decode('ascii')  # indirizzo ipv6 del j-esimo peer
+                                        owner_j_port = self.directory.recv(5).decode('ascii')  # porta del j-esimo peer
 
                                         file_owners.append(Owner(owner_j_ipv4, owner_j_ipv6, owner_j_port))
 

@@ -17,12 +17,12 @@ def recvall(socket, chunk_size):
     :rtype: bytearray
     """
 
-    data = socket.recv(chunk_size)  # Lettura di chunk_size byte dalla socket
+    data = socket.recv(chunk_size).decode('ascii')  # Lettura di chunk_size byte dalla socket
     actual_length = len(data)
 
     # Se sono stati letti meno byte di chunk_size continua la lettura finchè non si raggiunge la dimensione specificata
     while actual_length < chunk_size:
-        new_data = socket.recv(chunk_size - actual_length)
+        new_data = socket.recv(chunk_size - actual_length).decode('ascii')
         actual_length += len(new_data)
         data += new_data
 
@@ -54,9 +54,9 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
     msg = 'RETR' + file.md5
     print ('Download Message: ' + msg)
     try:
-        download.send(msg)                                                          # Richiesta di download al peer
+        download.send(msg.encode('utf-8'))                                                          # Richiesta di download al peer
         print ('Message sent, waiting for response...')
-        response_message = download.recv(10)                                        # Risposta del peer, deve contenere il codice ARET seguito dalle parti del file
+        response_message = download.recv(10).decode('ascii')                                      # Risposta del peer, deve contenere il codice ARET seguito dalle parti del file
     except socket.error as e:
         print ('Error: ' + e.message)
     except Exception as e:
@@ -78,8 +78,8 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
                 update_progress(i, n_chunks, 'Downloading ' + fout.name)    # Stampa a video del progresso del download
 
                 try:
-                    chunk_length = recvall(download, 5)                             # Ricezione dal peer la lunghezza della parte di file
-                    data = recvall(download, int(chunk_length))                     # Ricezione dal peer la parte del file
+                    chunk_length = recvall(download, 5).decode('ascii')                            # Ricezione dal peer la lunghezza della parte di file
+                    data = recvall(download, int(chunk_length)).decode('ascii')                     # Ricezione dal peer la parte del file
                     fout.write(data)                                                # Scrittura della parte su file
                 except socket.error as e:
                     print ('Socket Error: ' + e.message)
@@ -118,9 +118,9 @@ def warns_directory(session_id, file_md5, directory):
 
     cmd = 'DREG' + session_id + file_md5
     try:
-        directory.sendall(cmd)                                                      # Notifica del download alla directory
+        directory.sendall(cmd.encode('utf-8'))                                                      # Notifica del download alla directory
         print ('Message sent, waiting for response...')
-        response_message = directory.recv(9)                                        # Risposta della directory, deve contenere il codice ADRE seguito dal numero totale di download
+        response_message = directory.recv(9).decode('ascii')                                        # Risposta della directory, deve contenere il codice ADRE seguito dal numero totale di download
         print ('Directory responded: ' + response_message)
     except socket.error as e:
         print ('Socket Error: ' + e.message)

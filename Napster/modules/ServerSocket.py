@@ -24,9 +24,9 @@ def hashfile(afile, hasher, blocksize=65536):
 
 def clientthread(conn):
         try:
-            cmd = conn.recv(4)
+            cmd = conn.recv(4).decode('ascii')
             if cmd == 'RETR':
-                fileRemoteMd5 = conn.recv(16)
+                fileRemoteMd5 = conn.recv(16).decode('ascii')
 
 
             for root, dirs, files in os.walk("shareable"):
@@ -37,15 +37,15 @@ def clientthread(conn):
                         numChunks = length / 1024 + 1
 
                         strChunks = convert_to_string(numChunks, 6)
-                        conn.send('ARET')
-                        conn.send(strChunks)
+                        conn.send('ARET'.encode('utf-8'))
+                        conn.send(strChunks.encode('utf-8'))
                         with open("shareable/" + file, 'rb') as f:
                             l = f.read(1024)
                             while (l):
                                 lenChunk = len(str(l))
                                 strLenChunk = convert_to_string(lenChunk, 5)
-                                conn.send(strLenChunk)
-                                conn.send(l)
+                                conn.send(strLenChunk.encode('utf-8'))
+                                conn.send(l.encode('utf-8'))
                                 l = f.read(1024)
         except socket.error as e:
             if isinstance(e.args, tuple):

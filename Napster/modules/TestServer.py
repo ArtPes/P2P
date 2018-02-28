@@ -34,9 +34,9 @@ class Client(threading.Thread):
 
             if cmd == "FIND":
                 print("received command: " + str(cmd))
-                sessionId = conn.recv(16)
+                sessionId = conn.recv(16).decode('ascii')
                 print("received sessionID: " + str(sessionId))
-                term = conn.recv(20)
+                term = conn.recv(20).decode('ascii')
                 print("received search term: " + str(term))
 
                 #  Finta risposta dalla directory
@@ -58,12 +58,12 @@ class Client(threading.Thread):
                         response += '172.030.008.003|fc00:0000:0000:0000:0000:0000:0008:0003'
                         response += '03000'
 
-                conn.send(response)
+                conn.send(response.encode('utf-8'))
 
             elif cmd == "LOGI":
                 msg = conn.recv(55).decode('ascii')
                 print("received command: " + str(cmd))
-                print("received ipv4: " + msg[:16])
+                print("received ipv4: " + msg[:15])
                 print("received ipv6: " + msg[16:])
                 #print("received porta: ")
 
@@ -74,28 +74,28 @@ class Client(threading.Thread):
             elif cmd == "GREG":
                 response = 'ADRE' + '002'
                 print(response)
-                conn.send(response)
+                conn.send(response.encode('utf-8'))
 
             elif cmd == 'LOGO':
                 print("received command: " + str(cmd))
-                sessionid = conn.recv(16)
+                sessionid = conn.recv(16).decode('ascii')
                 print("peer: " + sessionid)
                 response = 'ALGO' + '003'
                 print(response)
-                conn.send(response)
+                conn.send(response.encode('utf-8'))
 
             elif cmd == 'ADDF':
-                response = 'RADD' + '003'
+                response = 'AADD' + '003'
                 print(response)
-                conn.send(response)
+                conn.send(response.encode('utf-8'))
 
             elif cmd == 'DELF':
-                response = 'RDEL' + '003'
+                response = 'ADEL' + '003'
                 print(response)
-                conn.send(response)
+                conn.send(response.encode('utf-8'))
 
             elif cmd == 'RETR':
-                fileRemoteMd5 = conn.recv(32)
+                fileRemoteMd5 = conn.recv(32).decode('ascii')
 
                 for root, dirs, files in os.walk("share"):
                     for file in files:
@@ -107,7 +107,7 @@ class Client(threading.Thread):
                             numChunks = length / 1024 + 1
 
                             strChunks = str(numChunks).zfill(6)
-                            conn.send('ARET' + strChunks)
+                            conn.send(('ARET' + strChunks).encode('utf-8'))
 
                             msg = ''
                             with open("share/" + file, 'rb') as f:
@@ -119,11 +119,11 @@ class Client(threading.Thread):
                                     msg += l
                                     l = f.read(1024)
                             f.close()
-                            conn.send(msg)
+                            conn.send(msg.encode('utf-8'))
             elif cmd == 'DREG':
-                conn.recv(48)
+                conn.recv(48).decode('ascii')
                 print(response)
-                conn.send('ADRE' + str(5).zfill(5))
+                conn.send(('ADRE' + str(5).zfill(5)).encode('utf-8'))
 
 
 class Server:
