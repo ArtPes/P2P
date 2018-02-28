@@ -9,6 +9,7 @@ from modules.Connection import *
 from modules.helpers import *
 
 
+
 class Peer(object):
     """
     Rappresenta il peer corrente
@@ -24,15 +25,17 @@ class Peer(object):
         files_list:
         directory: connessione alla directory
     """
+
     session_id = None
-    my_ipv4 = "172.030.008.002"
-    my_ipv6 = "fc00:0000:0000:0000:0000:0000:0008:0002"
+    my_ipv4 = "127.000.000.001"
+    my_ipv6 = "0000:0000:0000:0000:0000:0000:0000:0001"
     my_port = "06000"
-    dir_ipv4 = "172.030.001.001"
-    dir_ipv6 = "fc00:0000:0000:0000:0000:0000:0001:0001"
+    dir_ipv4 = "127.000.000.001"
+    dir_ipv6 = "0000:0000:0000:0000:0000:0000:0000:0001"
     dir_port = "03000"
     files_list = []
     directory = None
+
 
     def __init__(self):
         """
@@ -61,9 +64,9 @@ class Peer(object):
             c.connect()
             self.directory = c.socket
 
-            self.directory.send(msg)  # Richiesta di login
+            self.directory.send(msg.encode('utf-8'))  # Richiesta di login
             print('Message sent, waiting for response...')
-            response_message = self.directory.recv(20)  # Risposta della directory, deve contenere ALGI e il session id
+            response_message = self.directory.recv(20).decode('ascii')  # Risposta della directory, deve contenere ALGI e il session id
             print('Directory responded: ' + response_message)
         except socket.error as msg:
             print('Socket Error: ' + str(msg))

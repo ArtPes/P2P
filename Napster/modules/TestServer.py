@@ -19,8 +19,8 @@ import sys
 class Client(threading.Thread):
     # def __init__(self,(address, client)):   !!!DA CONTROLLARE SE QUESTA NOTAZIONE DELLE TUPLE VADA BENE!!!
     def __init__(self, data):
-        address = data[0]
-        client = data[1]
+        address = data[1]
+        client = data[0]
         threading.Thread.__init__(self)
         self.client = client
         self.address = address
@@ -30,7 +30,7 @@ class Client(threading.Thread):
         running = 1
         while running:
             conn = self.client
-            cmd = conn.recv(4)
+            cmd = conn.recv(4).decode('ascii')
 
             if cmd == "FIND":
                 print("received command: " + str(cmd))
@@ -61,15 +61,15 @@ class Client(threading.Thread):
                 conn.send(response)
 
             elif cmd == "LOGI":
-                msg = conn.recv(55)
+                msg = conn.recv(55).decode('ascii')
                 print("received command: " + str(cmd))
-                print("received ipv4: " + msg[:4])
-                print("received ipv6: " + msg[4:])
-                print("received porta: ")
+                print("received ipv4: " + msg[:16])
+                print("received ipv6: " + msg[16:])
+                #print("received porta: ")
 
                 response = 'ALGI' + '1234567891234567'
                 print(response)
-                conn.sendall(response)
+                conn.sendall(response.encode('utf-8'))
 
             elif cmd == "GREG":
                 response = 'ADRE' + '002'

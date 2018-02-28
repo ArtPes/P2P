@@ -2,6 +2,7 @@
 from modules import Peer
 import sys
 from modules import PeerServer
+import time
 
 # main
 # Inizializzazione del peer
@@ -39,7 +40,7 @@ while p.session_id is None:
             peerserver.start()
         else:
             break
-
+        time.sleep(2) # senza timeout scritte vengono stampate male
         while p.session_id is not None:     # Utente loggato
             print ("\nSelect one of the following options:")
             print ("1: Add File")
