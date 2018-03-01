@@ -1,10 +1,10 @@
 import socket
 import json
-from modules.SharedFile import *
+from SharedFile import *
 import os
 import hashlib
 from random import randint
-from modules.helpers import *
+from helpers import *
 
 import threading
 
@@ -55,7 +55,7 @@ class Client(threading.Thread):
                         response += copies  # 2 copie
                         response += '127.000.000.001|0000:0000:0000:0000:0000:0000:0000:0001'
                         response += '03000'
-                        response += '172.030.008.003|fc00:0000:0000:0000:0000:0000:0008:0003'
+                        response += '172.000.000.001|fc00:0000:0000:0000:0000:0000:0008:0003'
                         response += '03000'
 
                 conn.send(response.encode('utf-8'))
