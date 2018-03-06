@@ -37,7 +37,7 @@ class Peer(object):
     directory = None
 
 
-    def __init__(self):
+    def __init__(self, port):
         """
         Costruttore della classe Peer
         """
@@ -47,6 +47,7 @@ class Peer(object):
                 file_md5 = hashfile(open("shareable/" + file, 'rb'), hashlib.md5())
                 new_file = SharedFile(file, file_md5)
                 self.files_list.append(new_file)
+        self.my_port = port;
 
     def login(self):
         """
@@ -293,15 +294,12 @@ class Peer(object):
                                     # md5, nome del file, numero di copie, elenco dei peer che l'hanno condiviso
 
                                     file_i_md5 = self.directory.recv(32).decode('ascii')  # md5 dell'i-esimo file (32 caratteri)
-                                    file_i_name = self.directory.recv(
-                                        100).strip().decode('ascii')  # nome dell'i-esimo file (100 caratteri compresi spazi)
-                                    file_i_copies = self.directory.recv(
-                                        3).decode('ascii')  # numero di copie dell'i-esimo file (3 caratteri)
+                                    file_i_name = self.directory.recv(100).strip().decode('ascii')  # nome dell'i-esimo file (100 caratteri compresi spazi)
+                                    file_i_copies = self.directory.recv(3).decode('ascii')  # numero di copie dell'i-esimo file (3 caratteri)
                                     file_owners = []
-                                    for copy in range(0, int(
-                                            file_i_copies)):  # dati del j-esimo peer che ha condiviso l'i-esimo file
-                                        owner_j_ipv4 = self.directory.recv(16).replace("|",
-                                                                                       "").decode('ascii')  # indirizzo ipv4 del j-esimo peer
+                                    for copy in range(0, int(file_i_copies)):  # dati del j-esimo peer che ha condiviso l'i-esimo file
+                                        owner_j_ipv4 = self.directory.recv(16).decode('ascii').replace("|", "") # indirizzo ipv4 del j-esimo peer
+                                        #owner_j_ipv4 = self.directory.recv(16).decode('ascii')
                                         owner_j_ipv6 = self.directory.recv(39).decode('ascii')  # indirizzo ipv6 del j-esimo peer
                                         owner_j_port = self.directory.recv(5).decode('ascii')  # porta del j-esimo peer
 

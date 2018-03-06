@@ -78,8 +78,13 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
                 update_progress(i, n_chunks, 'Downloading ' + fout.name)    # Stampa a video del progresso del download
 
                 try:
-                    chunk_length = recvall(download, 5).decode('ascii')                            # Ricezione dal peer la lunghezza della parte di file
-                    data = recvall(download, int(chunk_length)).decode('ascii')                     # Ricezione dal peer la parte del file
+                    chunk_length = download.recv(5).decode('ascii')                          # Ricezione dal peer la lunghezza della parte di file
+                    if int(chunk_length) != 1024:
+                        print('ciao')
+                    data = download.recv(int(chunk_length))               # Ricezione dal peer la parte del file
+                    temp1 = chunk_length
+                    temp2 = int(chunk_length)
+
                     fout.write(data)                                                # Scrittura della parte su file
                 except socket.error as e:
                     print ('Socket Error: ' + e.message)

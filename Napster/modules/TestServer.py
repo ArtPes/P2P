@@ -1,10 +1,10 @@
 import socket
 import json
-from SharedFile import *
+from modules.SharedFile import *
 import os
 import hashlib
 from random import randint
-from helpers import *
+from modules.helpers import *
 
 import threading
 
@@ -44,20 +44,34 @@ class Client(threading.Thread):
                 idmd5 = None
 
                 response = 'AFIN' + str(2).zfill(3)
-
-                for root, dirs, files in os.walk("./share"):
-                    for file in files:
-                        filemd5 = hashfile(open("./share/" + file, 'rb'), hashlib.md5())
-                        filename = file.ljust(100)
-                        copies = str(2).zfill(3)
-                        response += filemd5
-                        response += filename
-                        response += copies  # 2 copie
-                        response += '127.000.000.001|0000:0000:0000:0000:0000:0000:0000:0001'
-                        response += '03000'
-                        response += '172.000.000.001|fc00:0000:0000:0000:0000:0000:0008:0003'
-                        response += '03000'
-
+                #file1
+                response += hashfile(open("../shareable/" + 'bg3.jpg', 'rb'), hashlib.md5())#md5 del file
+                response += str('b1').ljust(100) #nome del file
+                response += str(1).zfill(3) #numero copie
+                response += '127.000.000.001'
+                response += '|'
+                response += '0000:0000:0000:0000:0000:0000:0000:0001'
+                response += '06000'
+                #file2
+                response += hashfile(open("../shareable/" + 'bg2.jpg', 'rb'), hashlib.md5())#md5 del file
+                response += str('b2').ljust(100) #nome del file
+                response += str(1).zfill(3) #numero copie
+                response += '127.000.000.001'
+                response += '|'
+                response += '0000:0000:0000:0000:0000:0000:0000:0001'
+                response += '08000'
+                # for root, dirs, files in os.walk("./share"):
+                #    for file in files:
+                #        filemd5 = hashfile(open("./share/" + file, 'rb'), hashlib.md5())
+                #        filename = file.ljust(100)
+                #        copies = str(2).zfill(3)
+                #        response += filemd5
+                #        response += filename
+                #        response += copies  # 2 copie
+                #        response += '127.000.000.001|0000:0000:0000:0000:0000:0000:0000:0001'
+                #        response += '03000'
+                #        response += '172.000.000.001|fc00:0000:0000:0000:0000:0000:0008:0003'
+                #        response += '03000'
                 conn.send(response.encode('utf-8'))
 
             elif cmd == "LOGI":

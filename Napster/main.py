@@ -6,7 +6,8 @@ import time
 
 # main
 # Inizializzazione del peer
-p = Peer.Peer()
+port = input('Insert port:')
+p = Peer.Peer(port)
 
 while p.session_id is None:
     print ('Select one of the following options (\'e\' to exit):')
