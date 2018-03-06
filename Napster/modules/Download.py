@@ -78,13 +78,8 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
                 update_progress(i, n_chunks, 'Downloading ' + fout.name)    # Stampa a video del progresso del download
 
                 try:
-                    chunk_length = download.recv(5).decode('ascii')                          # Ricezione dal peer la lunghezza della parte di file
-                    if int(chunk_length) != 1024:
-                        print('ciao')
+                    chunk_length = download.recv(5).decode('ascii')                 # Ricezione dal peer la lunghezza della parte di file
                     data = download.recv(int(chunk_length))               # Ricezione dal peer la parte del file
-                    temp1 = chunk_length
-                    temp2 = int(chunk_length)
-
                     fout.write(data)                                                # Scrittura della parte su file
                 except socket.error as e:
                     print ('Socket Error: ' + e.message)
@@ -101,6 +96,8 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
             warns_directory(session_id, file.md5, directory)                        # Invocazione del metododo che segnala il download alla directory
             print ('Checking file integrity...')
             downloaded_md5 = hashfile(open(fout.name, 'rb'), hashlib.md5()) # Controllo dell'integrità del file appena scarcato tramite md5
+            print(file.md5)
+            print(downloaded_md5)
             if file.md5 == downloaded_md5:
                 print ('The downloaded file is intact')
             else:
@@ -123,7 +120,7 @@ def warns_directory(session_id, file_md5, directory):
 
     cmd = 'DREG' + session_id + file_md5
     try:
-        directory.sendall(cmd.encode('utf-8'))                                                      # Notifica del download alla directory
+        directory.send(cmd.encode('utf-8'))                                                      # Notifica del download alla directory
         print ('Message sent, waiting for response...')
         response_message = directory.recv(9).decode('ascii')                                        # Risposta della directory, deve contenere il codice ADRE seguito dal numero totale di download
         print ('Directory responded: ' + response_message)
