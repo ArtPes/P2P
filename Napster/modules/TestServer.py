@@ -152,7 +152,7 @@ class Server:
     def open_socket(self):
         try:
             self.server = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
-            self.server.bind((self.host, self.port))
+            self.server.bind(('', 3000))
             self.server.listen(5)
         # except socket.error as (value, message): !!!DA CONTROLLARE SE QUESTA NOTAZIONE DELLE TUPLE VADA BENE!!!
         except socket.error as error:

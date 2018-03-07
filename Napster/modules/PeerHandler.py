@@ -111,8 +111,8 @@ class PeerHandler(threading.Thread):
 
                                 while len(buff) == chunk_size:                      # Invio dei chunks
                                     try:
-                                        msg = str(len(buff)).zfill(5) + str(buff)
-                                        self.conn.sendall(msg.encode('utf-8'))                      # Invio di
+                                        msg = str(len(buff)).zfill(5).encode('utf-8') + buff
+                                        self.conn.sendall(msg)                      # Invio di
                                         chunks_sent += 1
 
                                         update_progress(chunks_sent, n_chunks, 'Uploading ' + file.name)      # Stampa a video del progresso dell'upload
@@ -121,8 +121,8 @@ class PeerHandler(threading.Thread):
                                     except IOError:
                                         print ("Connection error due to the death of the peer!!!\n")
                                 if len(buff) != 0:                                  # Invio dell'eventuale resto, se più piccolo di chunk_size
-                                    msg = str(len(buff)).zfill(5) + str(buff)
-                                    self.conn.sendall(msg.encode('utf-8'))
+                                    msg = str(len(buff)).zfill(5).encode('utf-8') + buff
+                                    self.conn.sendall(msg)
                                 print ("\nUpload Completed")
                                 file.close()                                        # Chiusura del file
                             except EOFError:
