@@ -66,7 +66,7 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
             #tmp = 0
 
             filename = file.name
-            fout = open('received/' + filename + '.jpg', "wb")                               # Apertura di un nuovo file in write byte mode (sovrascrive se già esistente)
+            fout = open('received/' + filename, "wb")                               # Apertura di un nuovo file in write byte mode (sovrascrive se già esistente)
 
             n_chunks = int(str(n_chunks).lstrip('0'))                               # Rimozione gli 0 dal numero di parti e converte in intero
 
@@ -79,6 +79,7 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
                 try:
                     chunk_length = recvall(download, 5).decode('ascii')                             # Ricezione dal peer la lunghezza della parte di file
                     data = recvall(download, int(chunk_length))                  # Ricezione dal peer la parte del file
+
                     fout.write(data)                                                # Scrittura della parte su file
                 except socket.error as e:
                     print('Socket Error: ' + e.message)
@@ -95,6 +96,8 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
             warns_directory(session_id, file.md5, directory)                        # Invocazione del metododo che segnala il download alla directory
             print('Checking file integrity...')
             downloaded_md5 = hashfile(open(fout.name, 'rb'), hashlib.md5()) # Controllo dell'integrità del file appena scarcato tramite md5
+            print(file.md5)
+            print(downloaded_md5)
             if file.md5 == downloaded_md5:
                 print ('The downloaded file is intact')
             else:

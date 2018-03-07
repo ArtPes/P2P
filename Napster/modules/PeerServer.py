@@ -86,7 +86,8 @@ class PeerServer(threading.Thread):
         Gestisce le connessioni in entrata creando per ognuna un nuovo thread che effettua l'upload del file richiesto
         """
 
-        c = Connection(self.ps_ipv4, self.ps_ipv6, self.ps_port) # Inizializzazione della socket in ascolto per le richieste degli altri peer
+        c = Connection(self.ps_ipv4, self.ps_ipv6,
+                       self.ps_port)  # Inizializzazione della socket in ascolto per le richieste degli altri peer
         c.listen_v4()
         self.ps_socket_v4 = c.socket
         c.listen_v6()
@@ -94,32 +95,35 @@ class PeerServer(threading.Thread):
 
         try:
             while self.allow_run:
-                input_ready, read_ready, error_ready = select.select([self.ps_socket_v4, self.ps_socket_v6], [], []) # Ricezione di un input dalle due socket
+                input_ready, read_ready, error_ready = select.select([self.ps_socket_v4, self.ps_socket_v6], [],
+                                                                     [])  # Ricezione di un input dalle due socket
 
                 for s in input_ready:
-                    if s == self.ps_socket_v4:                                              # Controllo della provenienza della richiesta
+                    if s == self.ps_socket_v4:  # Controllo della provenienza della richiesta
                         try:
-                            conn, addr = self.ps_socket_v4.accept()                         # Attesa della connessione di un peer sulla socket ipv4
-                            print ('Peer connected on: ', addr)
+                            conn, addr = self.ps_socket_v4.accept()  # Attesa della connessione di un peer sulla socket ipv4
+                            print('Peer connected on: ', addr)
 
-                            peer = PeerHandler(conn, addr, self.file_list)      # Creazione di un thread che si occupa dell'upload del file
+                            peer = PeerHandler(conn, addr,
+                                               self.file_list)  # Creazione di un thread che si occupa dell'upload del file
                             peer.start()
-                            self.threads.append(peer)                                       # Inserimento del thread nella lista dei thread attivi
+                            self.threads.append(peer)  # Inserimento del thread nella lista dei thread attivi
                         except Exception as e:
-                            print ("Error: "+Exception+" / " + e.message)
+                            print("Error: " + Exception + " / " + e.message)
 
-                    elif s == self.ps_socket_v6:                                            # Controllo della provenienza della richiesta
+                    elif s == self.ps_socket_v6:  # Controllo della provenienza della richiesta
                         try:
-                            conn, addr = self.ps_socket_v6.accept()                         # Attesa della connessione di un peer sulla socket ipv4
-                            print ('Peer connected on: ', addr)
+                            conn, addr = self.ps_socket_v6.accept()  # Attesa della connessione di un peer sulla socket ipv6
+                            print('Peer connected on: ', addr)
 
-                            peer = PeerHandler(conn, addr, self.file_list)      # Creazione di un thread che si occupa dell'upload del file
+                            peer = PeerHandler(conn, addr,
+                                               self.file_list)  # Creazione di un thread che si occupa dell'upload del file
                             peer.start()
-                            self.threads.append(peer)                                       # Inserimento del thread nella lista dei thread attivi
+                            self.threads.append(peer)  # Inserimento del thread nella lista dei thread attivi
                         except Exception as e:
-                            print ("Error: "+Exception+" / " + e.message)
+                            print("Error: " + Exception + " / " + e.message)
         except Exception as e:
-            print ('Error: ' + e.message)
+            print('Error: ' + e.message)
 
     def stop(self):
         """
@@ -129,8 +133,8 @@ class PeerServer(threading.Thread):
 
         self.allow_run = False
 
-        for p in self.threads:                                                 # Al logout si aspetta la terminazione dei thread in esecuzione
+        for p in self.threads:  # Al logout si aspetta la terminazione dei thread in esecuzione
             p.join()
 
-        self.ps_socket_v4.close()                                              # Chiusura delle socket in ascolto
-        self.ps_socket_v6.close()                                              # Chiusura delle socket in ascolto
+        self.ps_socket_v4.close()  # Chiusura delle socket in ascolto
+        self.ps_socket_v6.close()  # Chiusura delle socket in ascolto

@@ -46,7 +46,7 @@ class Client(threading.Thread):
                 response = 'AFIN' + str(2).zfill(3)
                 #file1
                 response += hashfile(open("../shareable/" + 'bg3.jpg', 'rb'), hashlib.md5())#md5 del file
-                response += str('b1').ljust(100) #nome del file
+                response += str('bg3.jpg').ljust(100) #nome del file
                 response += str(1).zfill(3) #numero copie
                 response += '127.000.000.001'
                 response += '|'
@@ -54,12 +54,12 @@ class Client(threading.Thread):
                 response += '06000'
                 #file2
                 response += hashfile(open("../shareable/" + 'bg2.jpg', 'rb'), hashlib.md5())#md5 del file
-                response += str('b2').ljust(100) #nome del file
+                response += str('b2g.jpg').ljust(100) #nome del file
                 response += str(1).zfill(3) #numero copie
                 response += '127.000.000.001'
                 response += '|'
                 response += '0000:0000:0000:0000:0000:0000:0000:0001'
-                response += '08000'
+                response += '06000'
                 # for root, dirs, files in os.walk("./share"):
                 #    for file in files:
                 #        filemd5 = hashfile(open("./share/" + file, 'rb'), hashlib.md5())
