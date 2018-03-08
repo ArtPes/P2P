@@ -1,5 +1,6 @@
 import sys
 
+
 def hashfile(file, hasher, blocksize=65536):
     """
     Esegue la funzione di hash sul contenuto del file per ottenere l'md5
@@ -40,3 +41,29 @@ def update_progress(count, total, suffix=''):
 
     sys.stdout.write('\r[%s] %s%s ...%s' % (bar, percents, '%', suffix))
     sys.stdout.flush()
+
+
+def add_zero(ip):                                  # aggiunge 0 davanti
+    list = ip.split(".")
+
+    a = list[0].zfill(3)
+    b = list[1].zfill(3)
+    c = list[2].zfill(3)
+    d = list[3].zfill(3)
+
+    new_ip = a + "." + b + "." + c + "." + d
+
+    return new_ip
+
+
+def remove_zero(ip):                               # rimuove 0 davanti
+    list = ip.split(".")
+
+    a = int(list[0])
+    b = int(list[1])
+    c = int(list[2])
+    d = int(list[3])
+
+    new_ip = str(a) + "." + str(b) + "." + str(c) + "." + str(d)
+
+    return new_ip
