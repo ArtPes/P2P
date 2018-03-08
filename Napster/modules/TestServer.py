@@ -1,10 +1,10 @@
 import socket
 import json
-from modules.SharedFile import *
+from SharedFile import *
 import os
 import hashlib
 from random import randint
-from modules.helpers import *
+from helpers import *
 
 import threading
 
@@ -48,9 +48,9 @@ class Client(threading.Thread):
                 response += hashfile(open("../shareable/" + 'bg3.jpg', 'rb'), hashlib.md5())#md5 del file
                 response += str('bg3.jpg').ljust(100) #nome del file
                 response += str(1).zfill(3) #numero copie
-                response += '172.016.004.001'
+                response += '127.000.000.001'
                 response += '|'
-                response += 'fc00:0000:0000:0000:0000:0000:0004:0001'
+                response += '0000:0000:0000:0000:0000:0000:0000:0001'
                 response += '06000'
                 #file2
                 response += hashfile(open("../shareable/" + 'bg2.jpg', 'rb'), hashlib.md5())#md5 del file

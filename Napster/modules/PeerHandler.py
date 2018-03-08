@@ -124,6 +124,11 @@ class PeerHandler(threading.Thread):
                                     msg = str(len(buff)).zfill(5).encode('utf-8') + buff
                                     self.conn.sendall(msg)
                                 print ("\nUpload Completed")
+                                print ("\nSelect one of the following options:")
+                                print ("1: Add File")
+                                print ("2: Remove File")
+                                print ("3: Search File")
+                                print ("4: LogOut")
                                 file.close()                                        # Chiusura del file
                             except EOFError:
                                 print ("You have read a EOF char")
