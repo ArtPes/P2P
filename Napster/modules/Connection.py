@@ -3,7 +3,7 @@
 # socket.inet_pton(socket.AF_INET6, some_string)
 import socket
 import random
-
+from modules.helpers import *
 
 class Connection:
     """
@@ -44,7 +44,8 @@ class Connection:
         Crea una socket TCP selezionando un indirizzo a caso (con probabilità 50/50) tra ipv4 e ipv6
         Da utilizzare per le richieste alle directory
         """
-        #if True:
+        self.ipv4 = remove_zero(self.ipv4)
+
         if random.choice((True, False)):
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # creazione socket ipv4
             self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -99,6 +100,8 @@ class Connection:
         Crea una socket TCP ipv4 in ascolto sull'indirizzo e porta specificati
         Da utilizzare per le richieste degli altri peer
         """
+
+        self.ipv4 = remove_zero(self.ipv4)
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # creazione socket ipv4
         self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

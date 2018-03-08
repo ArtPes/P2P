@@ -121,7 +121,7 @@ def warns_directory(session_id, file_md5, directory):
     try:
         directory.sendall(cmd.encode('utf-8'))                                                      # Notifica del download alla directory
         print('Message sent, waiting for response...')
-        response_message = directory.recv(9)                                        # Risposta della directory, deve contenere il codice ADRE seguito dal numero totale di download
+        response_message = directory.recv(9).decode('ascii')                                    # Risposta della directory, deve contenere il codice ADRE seguito dal numero totale di download
         print('Directory responded: ' + response_message)
         num_down = int(response_message[-5:])
         if response_message[0:4] == 'ADRE' and isinstance(num_down, int):
