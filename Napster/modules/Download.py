@@ -91,7 +91,9 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
                     print('Error: ' + e.message)
                     break
             fout.close()                                                            # Chiusura file a scrittura ultimata
+            update_progress(n_chunks, n_chunks, 'Downloading ' + file.name)
             print('\nDownload completed')
+
 
             warns_directory(session_id, file.md5, directory)                        # Invocazione del metododo che segnala il download alla directory
             print('Checking file integrity...')

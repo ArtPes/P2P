@@ -123,6 +123,7 @@ class PeerHandler(threading.Thread):
                                 if len(buff) != 0:                                  # Invio dell'eventuale resto, se più piccolo di chunk_size
                                     msg = str(len(buff)).zfill(5).encode('utf-8') + buff
                                     self.conn.sendall(msg)
+                                    update_progress(n_chunks, n_chunks, 'Uploading ' + file.name)
                                 print ("\nUpload Completed")
                                 print ("\nSelect one of the following options:")
                                 print ("1: Add File")
