@@ -258,6 +258,7 @@ class Peer(object):
 
                 response_message = self.directory.recv(
                     4).decode('ascii')  # Risposta della directory, deve contenere AFIN seguito dal numero di identificativi md5
+                print(response_message)
                 # disponibili e dalla lista di file e peer che li hanno condivisi
                 print('Directory responded: ' + response_message)
             except socket.error as msg:
