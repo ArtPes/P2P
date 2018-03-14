@@ -3,10 +3,11 @@ from modules import Peer
 import sys
 from modules import PeerServer
 import time
+from modules import config
 
 # main
 # Inizializzazione del peer
-port = input('Insert port:')
+port = config.CONFIG['my_port']
 p = Peer.Peer(port)
 
 while p.session_id is None:

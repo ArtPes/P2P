@@ -123,7 +123,7 @@ class PeerServer(threading.Thread):
                         except Exception as e:
                             print("Error: " + Exception + " / " + e.message)
         except Exception as e:
-            print('Error: ' + e.message)
+            print('Error: ' + str(e.message))
 
     def stop(self):
         """
