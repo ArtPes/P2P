@@ -60,7 +60,7 @@ if config.CONFIG['dir_ipv4'] == "":
     print("Insert IPv4 Address for directory ( Ex: 172.016.00X.00Y )")
     config.CONFIG['dir_ipv4'] = input()
 # set ipv6 for directory
-if config.CONFIG['dir_ipv4'] == "":
+if config.CONFIG['dir_ipv6'] == "":
     print("Insert IPv6 Address for directory ( Ex: fc00:0000:0000:0000:0000:0000:000X:000Y )")
     config.CONFIG['dir_ipv6'] = input()
 
