@@ -71,7 +71,7 @@ print("Configuration is:\n\tMy IPv4: %s\n\tMy IPv6: %s\n\tMy Port: %s\n\tDirecto
                                      config.CONFIG['dir_ipv4'],
                                      config.CONFIG['dir_ipv6']))
 # inizializzo il peer
-p = Peer.Peer(port)
+p = Peer.Peer(config.CONFIG['my_port'])
 
 while p.session_id is None:
     print ('Select one of the following options (\'e\' to exit):')
