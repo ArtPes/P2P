@@ -1,9 +1,8 @@
 # coding=utf-8
-# socket.inet_aton('172.0.0.1') mi trasforma una stringa ipv4 in un ipv4 per il sistema
-# socket.inet_pton(socket.AF_INET6, some_string)
 import socket
 import random
 from modules.helpers import *
+
 
 class Connection:
     """
@@ -67,35 +66,6 @@ class Connection:
             except socket.error as msg:
                 print("Connection error ipv6!\nTerminated.\nSocket.error : %s" % msg)
                 print(self.ipv4 + str(self.port))
-
-    '''
-    def listen(self):
-        """
-        Crea una socket TCP selezionando un indirizzo a caso (con probabilità 50/50) tra ipv4 e ipv6
-        Da utilizzare per le richieste degli altri peer
-        """
-        if random.choice((True, False)):
-            self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)                 # creazione socket ipv4
-            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-            try:
-                self.socket.bind((self.ipv4, self.port))                                    # inizializzazione della connessione
-                self.socket.listen(5)
-                print ("Listening on :" + self.ipv4 + str(self.port))
-            except socket.error, msg:
-                print ("Connection error ipv4!\nTerminated.\nSocket.error : %s" % msg)
-                print self.ipv4 + " " + str(self.port)
-
-        else:
-            self.socket = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)                # creazione socket ipv6
-            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-            try:
-                self.socket.bind((self.ipv6, self.port))                                    # inizializzazione della connessione
-                self.socket.listen(5)
-                print ("Succesfully connected to :" + self.ipv6 + str(self.port))
-            except socket.error, msg:
-                print ("Connection error ipv6!\nTerminated.\nSocket.error : %s" % msg)
-                print self.ipv6 + " " + str(self.port)
-    '''
 
     def listen_v4(self):
         """
