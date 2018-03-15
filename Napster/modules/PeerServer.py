@@ -1,4 +1,10 @@
 # coding=utf-8
+'''
+Created by:
+-Arturo Pesaro
+-Luca Padovan
+-Daniele Lovato
+'''
 import threading
 from modules.PeerHandler import *
 from modules.Connection import *

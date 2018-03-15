@@ -1,3 +1,9 @@
+'''
+Created by:
+-Arturo Pesaro
+-Luca Padovan
+-Daniele Lovato
+'''
 class SharedFile:
     """
     Rappresenta un file disponibile per la condivisione

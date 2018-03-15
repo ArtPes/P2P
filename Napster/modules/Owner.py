@@ -1,3 +1,9 @@
+'''
+Created by:
+-Arturo Pesaro
+-Luca Padovan
+-Daniele Lovato
+'''
 class Owner:
     """
     Rappresenta un peer che mette a disposizione un file per il download
