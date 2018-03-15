@@ -32,7 +32,7 @@ while p.session_id is None:
                 print ("A number is required")
 
     if int_option != 1:
-        print ('Option ' + str(option) + ' not available')
+        print('Option ' + str(option) + ' not available')
     else:
         p.login()           # Effettua il login
 

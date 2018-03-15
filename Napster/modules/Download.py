@@ -53,7 +53,7 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
     msg = 'RETR' + file.md5
     print('Download Message: ' + msg)
     try:
-        download.send(msg.encode('utf-8'))                                                          # Richiesta di download al peer
+        download.send(msg.encode('utf-8'))                                          # Richiesta di download al peer
         print('Message sent, waiting for response...')
         response_message = download.recv(10)                                        # Risposta del peer, deve contenere il codice ARET seguito dalle parti del file
     except socket.error as e:
