@@ -62,18 +62,18 @@ class PeerHandler(threading.Thread):
         try:
             cmd = self.conn.recv(4).decode('ascii')                                               # Ricezione del comando di download dal peer, deve contenere RETR
         except socket.error as e:
-            print ('Socket Error: ' + e.message)
+            print ('Socket Error: ' + str(e))
         except Exception as e:
-            print ('Error: ' + e.message)
+            print ('Error: ' + str(e))
         else:
             if cmd == "RETR":
                 try:
                     self.md5 = self.conn.recv(32).decode('ascii')                                   # Ricezione dell'md5 del file da inviare
                     print ('Received md5: ' + self.md5)
                 except socket.error as e:
-                    print ('Socket Error: ' + e.message)
+                    print ('Socket Error: ' + str(e))
                 except Exception as e:
-                    print ('Error: ' + e.message)
+                    print ('Error: ' + str(e))
                 else:
                     found_name = None
 
@@ -90,7 +90,7 @@ class PeerHandler(threading.Thread):
                         try:
                             file = open("shareable/" + found_name, "rb")
                         except Exception as e:
-                            print ('Error: ' + e.message + "\n")
+                            print ('Error: ' + str(e) + "\n")
                         else:
                             tot_dim = self.filesize("shareable/" + found_name)      # Calcolo delle dimesioni del file
                             n_chunks = int(tot_dim // chunk_size)              # Calcolo del numero di parti

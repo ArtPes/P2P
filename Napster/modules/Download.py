@@ -57,9 +57,9 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
         print('Message sent, waiting for response...')
         response_message = download.recv(10)                                        # Risposta del peer, deve contenere il codice ARET seguito dalle parti del file
     except socket.error as e:
-        print('Error: ' + e.message)
+        print('Error: ' + str(e))
     except Exception as e:
-        print('Error: ' + e.message)
+        print('Error: ' + str(e))
     else:
         if response_message[:4].decode('ascii') == 'ARET':
             n_chunks = response_message[4:10].decode('ascii')                                    # Numero di parti del file da scaricare
@@ -82,13 +82,13 @@ def get_file(session_id, host_ipv4, host_ipv6, host_port, file, directory):
 
                     fout.write(data)                                                # Scrittura della parte su file
                 except socket.error as e:
-                    print('Socket Error: ' + e.message)
+                    print('Socket Error: ' + str(e))
                     break
                 except IOError as e:
-                    print('IOError: ' + e.message)
+                    print('IOError: ' + str(e))
                     break
                 except Exception as e:
-                    print('Error: ' + e.message)
+                    print('Error: ' + str(e))
                     break
             fout.close()                                                            # Chiusura file a scrittura ultimata
             update_progress(n_chunks, n_chunks, 'Downloading ' + file.name)

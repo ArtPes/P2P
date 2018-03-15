@@ -72,7 +72,7 @@ class Peer(object):
         except socket.error as msg:
             print('Socket Error: ' + str(msg))
         except Exception as e:
-            print('Error: ' + e.message)
+            print('Error: ' + str(e))
         else:
             if response_message is None:
                 print('No response from directory. Login failed')
@@ -103,7 +103,7 @@ class Peer(object):
         except socket.error as msg:
             print('Socket Error: ' + str(msg))
         except Exception as e:
-            print('Error: ' + e.message)
+            print('Error: ' + str(e))
         else:
             if response_message is None:
                 print('No response from directory. Login failed')
@@ -163,7 +163,7 @@ class Peer(object):
                             except socket.error as msg:
                                 print('Socket Error: ' + str(msg))
                             except Exception as e:
-                                print('Error: ' + e.message)
+                                print('Error: ' + str(e))
                             else:
                                 if response_message is None:
                                     print('No response from directory.')
@@ -221,13 +221,12 @@ class Peer(object):
                             except socket.error as msg:
                                 print('Socket Error: ' + str(msg))
                             except Exception as e:
-                                print('Error: ' + e.message)
+                                print('Error: ' + str(e))
                             else:
                                 if response_message[-3:] == '999':  # Il file selezionato nella directory
                                     print("The file you chose doesn't exist in the directory")
                                 else:
-                                    print("Copies left in the directory: " + response_message[
-                                                                             -3:])  # Numero di copie rimanenti
+                                    print("Copies left in the directory: " + response_message[-3:])  # Numero di copie rimanenti
 
                     if not found:
                         print('Option not available')
@@ -264,7 +263,7 @@ class Peer(object):
             except socket.error as msg:
                 print('Socket Error: ' + str(msg))
             except Exception as e:
-                print('Error: ' + e.message)
+                print('Error: ' + str(e))
 
             if not response_message == 'AFIN':
                 print('Error: unknown response from directory.\n')
@@ -273,9 +272,9 @@ class Peer(object):
                 try:
                     idmd5 = self.directory.recv(3).decode('ascii')  # Numero di identificativi md5
                 except socket.error as e:
-                    print('Socket Error: ' + e.message)
+                    print('Socket Error: ' + str(e))
                 except Exception as e:
-                    print('Error: ' + e.message)
+                    print('Error: ' + str(e))
 
                 if idmd5 is None:
                     print('Error: idmd5 is blank')
@@ -311,7 +310,7 @@ class Peer(object):
                             except socket.error as msg:
                                 print('Socket Error: ' + str(msg))
                             except Exception as e:
-                                print('Error: ' + e.message)
+                                print('Error: ' + str(e))
 
                             if len(available_files) == 0:
                                 print("No results found for search term: " + term)
@@ -373,4 +372,3 @@ class Peer(object):
                                                  self.directory)
                         else:
                             print("Unknown error, check your code!")
-
