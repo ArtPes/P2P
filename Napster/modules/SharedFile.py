@@ -4,6 +4,8 @@ Created by:
 -Luca Padovan
 -Daniele Lovato
 '''
+
+
 class SharedFile:
     """
     Rappresenta un file disponibile per la condivisione

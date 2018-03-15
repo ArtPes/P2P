@@ -43,7 +43,6 @@ class Peer(object):
     files_list = []
     directory = None
 
-
     def __init__(self, port):
         """
         Costruttore della classe Peer
@@ -54,7 +53,7 @@ class Peer(object):
                 file_md5 = hashfile(open("shareable/" + file, 'rb'), hashlib.md5())
                 new_file = SharedFile(file, file_md5)
                 self.files_list.append(new_file)
-        self.my_port = port;
+        self.my_port = port
 
     def login(self):
         """
@@ -77,16 +76,22 @@ class Peer(object):
             response_message = self.directory.recv(20).decode('ascii')  # Risposta della directory, deve contenere ALGI e il session id
             print('Directory responded: ' + response_message)
         except socket.error as msg:
-            print('Socket Error: ' + str(msg))
+            print("######################################################")
+            print('Socket Error during Login: ' + str(msg))
+            print("######################################################")
         except Exception as e:
-            print('Error: ' + str(e))
+            print("######################################################")
+            print('Unknown Error during Login: ' + str(e))
+            print("######################################################")
         else:
             if response_message is None:
-                print('No response from directory. Login failed')
+                print('No response from directory. Login failed!')
             else:
                 self.session_id = response_message[4:20]
                 if self.session_id == '0000000000000000' or self.session_id == '':
+                    print("######################################################")
                     print('Troubles with the login procedure.\nPlease, try again.')
+                    print("######################################################")
                 else:
                     print('Session ID assigned by the directory: ' + self.session_id)
                     print('Login completed')
@@ -103,27 +108,31 @@ class Peer(object):
         try:
             self.directory.send(msg.encode('utf-8'))  # Richeista di logout
             print('Message sent, waiting for response...')
-
-            response_message = self.directory.recv(
-                7).decode('ascii')  # Risposta della directory, deve contenere ALGO e il numero di file che erano stati condivisi
+            response_message = self.directory.recv(7).decode('ascii')  # Risposta della directory, deve contenere ALGO e il numero di file che erano stati condivisi
             print('Directory responded: ' + response_message)
         except socket.error as msg:
-            print('Socket Error: ' + str(msg))
+            print("######################################################")
+            print('Socket Error during Logout: ' + str(msg))
+            print("######################################################")
         except Exception as e:
-            print('Error: ' + str(e))
+            print("######################################################")
+            print('Unknown Error during Logout: ' + str(e))
+            print("######################################################")
         else:
             if response_message is None:
-                print('No response from directory. Login failed')
+                print("########################################")
+                print('No response from directory.\nLogout failed!')
+                print("########################################")
             elif response_message[0:4] == 'ALGO':
                 self.session_id = None
-
                 number_file = int(response_message[4:7])  # Numero di file che erano stati condivisi
                 print('You\'d shared ' + str(number_file) + ' files')
-
                 self.directory.close()  # Chiusura della connessione
                 print('Logout completed')
             else:
+                print("#######################################")
                 print('Error: unknown response from directory.\n')
+                print("#######################################")
 
     def share(self):
         """
@@ -139,21 +148,19 @@ class Peer(object):
                 option = input()  # Selezione del file da condividere tra quelli disponibili (nella cartella shareable)
             except SyntaxError:
                 option = None
-
             if option is None:
-                print('Please select an option')
+                print('Please select an option!')
             elif option == "c":
                 break
             else:
                 try:
                     int_option = int(option)
                 except ValueError:
-                    print("A number is required")
+                    print("A number is required!")
                 else:
                     for idx, file in enumerate(self.files_list):  # Ricerca del file selezionato
                         if idx == int_option:
                             found = True
-
                             print("Adding file " + file.name)
                             msg = 'ADDF' + self.session_id + file.md5 + file.name.ljust(100)
                             print('Share message: ' + msg)
@@ -168,15 +175,18 @@ class Peer(object):
                                     7).decode('ascii')  # Risposta della directory, deve contenere AADD ed il numero di copie del file già condivise
                                 print('Directory responded: ' + response_message)
                             except socket.error as msg:
-                                print('Socket Error: ' + str(msg))
+                                print("######################################################")
+                                print('Socket Error during ADDF : ' + str(msg))
+                                print("######################################################")
                             except Exception as e:
-                                print('Error: ' + str(e))
+                                print("######################################################")
+                                print('Unknown Error during ADDF : ' + str(e))
+                                print("######################################################")
                             else:
                                 if response_message is None:
                                     print('No response from directory.')
                                 else:
-                                    print("Copies inside the directory: " + response_message[
-                                                                            -3:])  # Copie del file nella directory
+                                    print("Copies inside the directory: " + response_message[-3:])  # Copie del file nella directory
 
                     if not found:
                         print('Option not available')
@@ -226,9 +236,13 @@ class Peer(object):
                                     7).decode('ascii')  # Risposta della directory, deve contenere ADEL e il numero di copie rimanenti
                                 print('Directory responded: ' + response_message)
                             except socket.error as msg:
-                                print('Socket Error: ' + str(msg))
+                                print("######################################################")
+                                print('Socket Error during DELF : ' + str(msg))
+                                print("######################################################")
                             except Exception as e:
-                                print('Error: ' + str(e))
+                                print("######################################################")
+                                print('Unknown Error during DELF: ' + str(e))
+                                print("######################################################")
                             else:
                                 if response_message[-3:] == '999':  # Il file selezionato nella directory
                                     print("The file you chose doesn't exist in the directory")
@@ -268,28 +282,42 @@ class Peer(object):
                 # disponibili e dalla lista di file e peer che li hanno condivisi
                 print('Directory responded: ' + response_message)
             except socket.error as msg:
-                print('Socket Error: ' + str(msg))
+                print("######################################################")
+                print('Socket Error during FIND: ' + str(msg))
+                print("######################################################")
             except Exception as e:
-                print('Error: ' + str(e))
+                print("######################################################")
+                print('Unknown Error during FIND: ' + str(e))
+                print("######################################################")
 
             if not response_message == 'AFIN':
+                print("#######################################")
                 print('Error: unknown response from directory.\n')
+                print("#######################################")
             else:
                 idmd5 = None
                 try:
                     idmd5 = self.directory.recv(3).decode('ascii')  # Numero di identificativi md5
                 except socket.error as e:
-                    print('Socket Error: ' + str(e))
+                    print("######################################################")
+                    print('Socket Error in IDmd5: ' + str(e))
+                    print("######################################################")
                 except Exception as e:
-                    print('Error: ' + str(e))
+                    print("######################################################")
+                    print('Unknown Error in IDmd5: ' + str(e))
+                    print("######################################################")
 
                 if idmd5 is None:
-                    print('Error: idmd5 is blank')
+                    print("#####################")
+                    print('Error: IDmd5 is blank')
+                    print('#####################')
                 else:
                     try:
                         idmd5 = int(idmd5)
                     except ValueError:
-                        print("idmd5 is not a number")
+                        print("#####################")
+                        print("IDmd5 is not a number")
+                        print("#####################")
                     else:
                         if idmd5 == 0:
                             print("No results found for search term: " + term)
@@ -315,10 +343,13 @@ class Peer(object):
                                     available_files.append(SharedFile(file_i_name, file_i_md5, file_owners))
 
                             except socket.error as msg:
-                                print('Socket Error: ' + str(msg))
+                                print("######################################################")
+                                print('Socket Error while retrieving files details : ' + str(msg))
+                                print("######################################################")
                             except Exception as e:
-                                print('Error: ' + str(e))
-
+                                print("######################################################")
+                                print('Unknown Error while retrieving files details: ' + str(e))
+                                print("######################################################")
                             if len(available_files) == 0:
                                 print("No results found for search term: " + term)
                             else:
@@ -378,4 +409,6 @@ class Peer(object):
                                         get_file(self.session_id, owner.ipv4, owner.ipv6, owner.port, file_to_download,
                                                  self.directory)
                         else:
+                            print("###############################")
                             print("Unknown error, check your code!")
+                            print("###############################")

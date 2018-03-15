@@ -88,7 +88,9 @@ class PeerServer(threading.Thread):
                             peer.start()
                             self.threads.append(peer)  # Inserimento del thread nella lista dei thread attivi
                         except Exception as e:
-                            print("Error: " + Exception + " / " + e)
+                            print("######################################################")
+                            print("Unknown Error: " + str(e))
+                            print("######################################################")
 
                     elif s == self.ps_socket_v6:  # Controllo della provenienza della richiesta
                         try:
@@ -100,8 +102,11 @@ class PeerServer(threading.Thread):
                             peer.start()
                             self.threads.append(peer)  # Inserimento del thread nella lista dei thread attivi
                         except Exception as e:
-                            print("Error: " + Exception + " / " + e)
+                            print("######################################################")
+                            print("Unknown Error: " + str(e))
+                            print("######################################################")
         except Exception as e:
+            # cose strane
             print('\n')
 
     def stop(self):

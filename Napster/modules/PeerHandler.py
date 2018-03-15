@@ -68,18 +68,27 @@ class PeerHandler(threading.Thread):
         try:
             cmd = self.conn.recv(4).decode('ascii')                                               # Ricezione del comando di download dal peer, deve contenere RETR
         except socket.error as e:
-            print ('Socket Error: ' + str(e))
+            print("######################################################")
+            print('Socket Error during RETR: ' + str(e))
+            print("######################################################")
         except Exception as e:
-            print ('Error: ' + str(e))
+            print("######################################################")
+            print ('Unknown Error during RETR: ' + str(e))
+            print("######################################################")
         else:
             if cmd == "RETR":
                 try:
                     self.md5 = self.conn.recv(32).decode('ascii')                                   # Ricezione dell'md5 del file da inviare
-                    print ('Received md5: ' + self.md5)
+                    print('Received md5: ' + self.md5)
                 except socket.error as e:
-                    print ('Socket Error: ' + str(e))
+                    print("######################################################")
+                    print('Socket Error while retrieving MD5: ' + str(e))
+                    print("######################################################")
+
                 except Exception as e:
-                    print ('Error: ' + str(e))
+                    print("######################################################")
+                    print('Unknown Error while retrieving MD5: ' + str(e))
+                    print("######################################################")
                 else:
                     found_name = None
 
@@ -88,7 +97,7 @@ class PeerHandler(threading.Thread):
                             found_name = file.name
 
                     if found_name is None:
-                        print ('Found no file with md5: ' + self.md5)
+                        print('Found no file with md5: ' + self.md5)
                     else:
 
                         chunk_size = 1024                                           # Dimensione di una parte di file
@@ -96,7 +105,9 @@ class PeerHandler(threading.Thread):
                         try:
                             file = open("shareable/" + found_name, "rb")
                         except Exception as e:
-                            print ('Error: ' + str(e) + "\n")
+                            print("######################################################")
+                            print('Unknown Error while opening shareable file: ' + str(e) + "\n")
+                            print("######################################################")
                         else:
                             tot_dim = self.filesize("shareable/" + found_name)      # Calcolo delle dimesioni del file
                             n_chunks = int(tot_dim // chunk_size)              # Calcolo del numero di parti
@@ -111,9 +122,9 @@ class PeerHandler(threading.Thread):
                                 chunks_sent = 0
 
                                 msg = 'ARET' + str(n_chunks).zfill(6)               # Risposta alla richiesta di download, deve contenere ARET ed il numero di chunks che saranno inviati
-                                print ('Upload Message: ' + msg)
+                                print('Upload Message: ' + msg)
                                 self.conn.sendall(msg.encode('utf-8'))
-                                print ('Sending chunks...')
+                                print('Sending chunks...')
 
                                 while len(buff) == chunk_size:                      # Invio dei chunks
                                     try:
@@ -125,22 +136,29 @@ class PeerHandler(threading.Thread):
 
                                         buff = file.read(chunk_size)                # Lettura chunk successivo
                                     except IOError:
-                                        print ("Connection error due to the death of the peer!!!\n")
+                                        print("################################################")
+                                        print("Connection error due to the death of the peer!!!\n")
+                                        print("################################################")
                                 if len(buff) != 0:                                  # Invio dell'eventuale resto, se più piccolo di chunk_size
                                     msg = str(len(buff)).zfill(5).encode('utf-8') + buff
                                     self.conn.sendall(msg)
                                     update_progress(n_chunks, n_chunks, 'Uploading ' + file.name)
-                                print ("\nUpload Completed")
-                                print ("\nSelect one of the following options:")
-                                print ("1: Add File")
-                                print ("2: Remove File")
-                                print ("3: Search File")
-                                print ("4: LogOut")
+                                print("\nUpload Completed")
+                                print("\nSelect one of the following options:")
+                                print("1: Add File")
+                                print("2: Remove File")
+                                print("3: Search File")
+                                print("4: LogOut")
                                 file.close()                                        # Chiusura del file
                             except EOFError:
-                                print ("You have read a EOF char")
+                                print("########################")
+                                print("You have read a EOF char")
+                                print("########################")
+
             else:
-                print ("Error: unknown directory response.\n")
+                print("##################################")
+                print("Error: unknown directory response.\n")
+                print("##################################")
 
         self.conn.shutdown(1)                                                       # Segnalazione di fine comunicazione
         self.conn.close()                                                           # Chiusura comunicazione

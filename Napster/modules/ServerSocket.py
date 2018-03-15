@@ -12,6 +12,7 @@ from multiprocessing import Process
 import hashlib
 import base64
 
+
 def convert_to_string(no, numBytes):
     result = str(no)
     num = len(result)
@@ -19,6 +20,7 @@ def convert_to_string(no, numBytes):
         result = '0' + result
         num += 1
     return result
+
 
 def hashfile(afile, hasher, blocksize=65536):
     buf = afile.read(blocksize)
@@ -34,14 +36,12 @@ def clientthread(conn):
             if cmd == 'RETR':
                 fileRemoteMd5 = conn.recv(16).decode('ascii')
 
-
             for root, dirs, files in os.walk("shareable"):
                 for file in files:
                     fileMd5 = hashfile(open("shareable/" + file, 'rb'), hashlib.md5())
                     if fileRemoteMd5 == fileMd5:
                         length = os.stat("shareable/" + file).st_size
                         numChunks = length / 1024 + 1
-
                         strChunks = convert_to_string(numChunks, 6)
                         conn.send('ARET'.encode('utf-8'))
                         conn.send(strChunks.encode('utf-8'))
@@ -55,17 +55,20 @@ def clientthread(conn):
                                 l = f.read(1024)
         except socket.error as e:
             if isinstance(e.args, tuple):
-                print ("errno is %d" % e[0])
+                print("errno is %d" % e[0])
                 if e[0] == errno.EPIPE:
                    # remote peer disconnected
-                   print ("Detected remote disconnect")
+                   print("######################################################")
+                   print("Detected remote disconnect")
+                   print("######################################################")
                 else:
                    # determine and handle different error
                    pass
             else:
-                print ("socket error ", e)
+                print("######################################################")
+                print("Socket error " + str(e))
+                print("######################################################")
             conn.close()
-
 
 
 def start_server():
@@ -93,13 +96,15 @@ def start_server():
                 continue
             break
         if s is None:
-            print ('could not open socket')
+            print("######################")
+            print('Could not open socket.')
+            print("######################")
             sys.exit(1)
 
         while True:
             #wait to accept a connection - blocking call
             conn, addr = s.accept()
-            print ('Connected by', addr)
+            print('Connected by', addr)
 
             #start new thread takes 1st argument as a function name to be run
             start_new_thread(clientthread ,(conn,))
