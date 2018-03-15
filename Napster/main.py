@@ -5,9 +5,66 @@ from modules import PeerServer
 import time
 from modules import config
 
+
 # main
 # Inizializzazione del peer
-port = config.CONFIG['my_port']
+# configurazione iniziale
+
+print(r"""
+          _____                    _____                    _____                    _____                _____                    _____                    _____          
+         /\    \                  /\    \                  /\    \                  /\    \              /\    \                  /\    \                  /\    \         
+        /::\____\                /::\    \                /::\    \                /::\    \            /::\    \                /::\    \                /::\    \        
+       /::::|   |               /::::\    \              /::::\    \              /::::\    \           \:::\    \              /::::\    \              /::::\    \       
+      /:::::|   |              /::::::\    \            /::::::\    \            /::::::\    \           \:::\    \            /::::::\    \            /::::::\    \      
+     /::::::|   |             /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \           \:::\    \          /:::/\:::\    \          /:::/\:::\    \     
+    /:::/|::|   |            /:::/__\:::\    \        /:::/__\:::\    \        /:::/__\:::\    \           \:::\    \        /:::/__\:::\    \        /:::/__\:::\    \    
+   /:::/ |::|   |           /::::\   \:::\    \      /::::\   \:::\    \       \:::\   \:::\    \          /::::\    \      /::::\   \:::\    \      /::::\   \:::\    \   
+  /:::/  |::|   | _____    /::::::\   \:::\    \    /::::::\   \:::\    \    ___\:::\   \:::\    \        /::::::\    \    /::::::\   \:::\    \    /::::::\   \:::\    \  
+ /:::/   |::|   |/\    \  /:::/\:::\   \:::\    \  /:::/\:::\   \:::\____\  /\   \:::\   \:::\    \      /:::/\:::\    \  /:::/\:::\   \:::\    \  /:::/\:::\   \:::\____\ 
+/:: /    |::|   /::\____\/:::/  \:::\   \:::\____\/:::/  \:::\   \:::|    |/::\   \:::\   \:::\____\    /:::/  \:::\____\/:::/__\:::\   \:::\____\/:::/  \:::\   \:::|    |
+\::/    /|::|  /:::/    /\::/    \:::\  /:::/    /\::/    \:::\  /:::|____|\:::\   \:::\   \::/    /   /:::/    \::/    /\:::\   \:::\   \::/    /\::/   |::::\  /:::|____|
+ \/____/ |::| /:::/    /  \/____/ \:::\/:::/    /  \/_____/\:::\/:::/    /  \:::\   \:::\   \/____/   /:::/    / \/____/  \:::\   \:::\   \/____/  \/____|:::::\/:::/    / 
+         |::|/:::/    /            \::::::/    /            \::::::/    /    \:::\   \:::\    \      /:::/    /            \:::\   \:::\    \            |:::::::::/    /  
+         |::::::/    /              \::::/    /              \::::/    /      \:::\   \:::\____\    /:::/    /              \:::\   \:::\____\           |::|\::::/    /   
+         |:::::/    /               /:::/    /                \::/____/        \:::\  /:::/    /    \::/    /                \:::\   \::/    /           |::| \::/____/    
+         |::::/    /               /:::/    /                  ~~               \:::\/:::/    /      \/____/                  \:::\   \/____/            |::|  ~|          
+         /:::/    /               /:::/    /                                     \::::::/    /                                 \:::\    \                |::|   |          
+        /:::/    /               /:::/    /                                       \::::/    /                                   \:::\____\               \::|   |          
+        \::/    /                \::/    /                                         \::/    /                                     \::/    /                \:|   |          
+         \/____/                  \/____/                                           \/____/                                       \/____/                  \|___|          
+                                                                                                                                                                           
+
+
+                """)
+
+# port number
+if config.CONFIG['my_port'] == "":
+    print("Insert a port number for this device... ( Ex. 06000 MUST BE 5 char )")
+    config.CONFIG['my_port'] = input()
+# set ipv4 for this machine
+if config.CONFIG['my_ipv4'] == "":
+    print("Insert IPv4 Address for this device ( Ex: 172.016.00X.00Y ) ")
+    config.CONFIG['my_ipv4'] = input()
+# set ipv6 for this machine
+if config.CONFIG['my_ipv6'] == "":
+    print("Insert IPv6 Address for this device ( Ex: fc00:0000:0000:0000:0000:0000:000X:000Y )")
+    config.CONFIG['my_ipv6'] = input()
+# set ipv4 for directory
+if config.CONFIG['dir_ipv4'] == "":
+    print("Insert IPv4 Address for directory ( Ex: 172.016.00X.00Y )")
+    config.CONFIG['my_ipv4'] = input()
+# set ipv6 for directory
+if config.CONFIG['dir_ipv4'] == "":
+    print("Insert IPv6 Address for directory ( Ex: fc00:0000:0000:0000:0000:0000:000X:000Y )")
+    config.CONFIG['my_ipv6'] = input()
+
+print("Configuration is:\n\tMy IPv4: %s\n\tMy IPv6: %s\n\tMy Port: %s\n\tDirectory IPv4: %s\n\tDirectory IPv6: %s\n\n" %
+                                    (config.CONFIG['my_ipv4'],
+                                     config.CONFIG['my_ipv6'],
+                                     config.CONFIG['my_port'],
+                                     config.CONFIG['dir_ipv4'],
+                                     config.CONFIG['dir_ipv6']))
+# inizializzo il peer
 p = Peer.Peer(port)
 
 while p.session_id is None:
@@ -29,7 +86,7 @@ while p.session_id is None:
             try:
                 int_option = int(option)
             except ValueError:
-                print ("A number is required")
+                print("A number is required")
 
     if int_option != 1:
         print('Option ' + str(option) + ' not available')
