@@ -1,3 +1,9 @@
+'''
+Created by:
+-Arturo Pesaro
+-Luca Padovan
+-Daniele Lovato
+'''
 import socket
 import json
 from SharedFile import *
@@ -45,16 +51,16 @@ class Client(threading.Thread):
 
                 response = 'AFIN' + str(2).zfill(3)
                 #file1
-                response += hashfile(open("../shareable/" + 'bg3.jpg', 'rb'), hashlib.md5())#md5 del file
-                response += str('bg3.jpg').ljust(100) #nome del file
+                response += hashfile(open("../shareable/" + 'shark.png', 'rb'), hashlib.md5())#md5 del file
+                response += str('shark.png').ljust(100) #nome del file
                 response += str(1).zfill(3) #numero copie
                 response += '127.000.000.001'
                 response += '|'
                 response += '0000:0000:0000:0000:0000:0000:0000:0001'
                 response += '06000'
                 #file2
-                response += hashfile(open("../shareable/" + 'bg2.jpg', 'rb'), hashlib.md5())#md5 del file
-                response += str('bg2.jpg').ljust(100) #nome del file
+                response += hashfile(open("../shareable/" + 'shark.png', 'rb'), hashlib.md5())#md5 del file
+                response += str('shark.png').ljust(100) #nome del file
                 response += str(1).zfill(3) #numero copie
                 response += '172.016.004.001'
                 response += '|'

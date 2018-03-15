@@ -1,4 +1,10 @@
 # coding=utf-8
+'''
+Created by:
+-Arturo Pesaro
+-Luca Padovan
+-Daniele Lovato
+'''
 import socket
 import hashlib
 from modules.Connection import *

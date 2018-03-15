@@ -1,4 +1,10 @@
 # coding=utf-8
+'''
+Created by:
+-Arturo Pesaro
+-Luca Padovan
+-Daniele Lovato
+'''
 import socket
 import random
 from modules.helpers import *

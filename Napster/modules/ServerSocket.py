@@ -1,3 +1,9 @@
+'''
+Created by:
+-Arturo Pesaro
+-Luca Padovan
+-Daniele Lovato
+'''
 import socket, errno
 import os
 import sys
