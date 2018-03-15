@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a6617457-77fa-49bc-8206-7e408faaadaa" name="Default" comment="fix generale">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Napster/main.py" afterPath="$PROJECT_DIR$/Napster/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Napster/modules/config.py" afterPath="$PROJECT_DIR$/Napster/modules/config.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,18 +24,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1521121448847" expanded="true" signature="87:358" ph="&quot;&quot;&quot;Rappresenta un file disponibile per la condivisione...&quot;&quot;&quot;" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Napster/modules/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -42,54 +42,19 @@
       <file leaf-file-name="Connection.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Napster/modules/Connection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
+            <state relative-caret-position="801">
               <caret line="73" column="49" lean-forward="false" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
-              <folding>
-                <marker date="1521121448830" expanded="true" signature="15:137" ph="import ..." />
-                <marker date="1521121448830" expanded="true" signature="162:356" ph="&quot;&quot;&quot;Crea le connessioni a directory e peers...&quot;&quot;&quot;" />
-                <marker date="1521121448830" expanded="true" signature="465:911" ph="..." />
-                <marker date="1521121448830" expanded="true" signature="474:705" ph="&quot;&quot;&quot;Costruttore della classe Connection...&quot;&quot;&quot;" />
-                <marker date="1521121448830" expanded="true" signature="794:911" ph="..." />
-                <marker date="1521121448830" expanded="true" signature="935:2381" ph="..." />
-                <marker date="1521121448830" expanded="true" signature="944:1114" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448830" expanded="true" signature="1199:1782" ph="..." />
-                <marker date="1521121448830" expanded="true" signature="1421:1606" ph="..." />
-                <marker date="1521121448830" expanded="true" signature="1646:1782" ph="..." />
-                <marker date="1521121448830" expanded="true" signature="1797:2381" ph="..." />
-                <marker date="1521121448830" expanded="true" signature="2020:2205" ph="..." />
-                <marker date="1521121448830" expanded="true" signature="2245:2381" ph="..." />
-                <marker date="1521121448830" expanded="true" signature="2407:3170" ph="..." />
-                <marker date="1521121448830" expanded="true" signature="2416:2566" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448830" expanded="true" signature="2795:2995" ph="..." />
-                <marker date="1521121448830" expanded="true" signature="3031:3170" ph="..." />
-                <marker date="1521121448830" expanded="true" signature="3205:3355" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Napster/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding>
-                <marker date="1521121448864" expanded="true" signature="15:185" ph="import ..." />
-                <marker date="1521121448864" expanded="true" signature="188:248" ph="..." />
-                <marker date="1521121448864" expanded="true" signature="256:4066" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448864" expanded="true" signature="4117:4238" ph="..." />
-                <marker date="1521121448864" expanded="true" signature="4301:4414" ph="..." />
-                <marker date="1521121448864" expanded="true" signature="4477:4613" ph="..." />
-                <marker date="1521121448864" expanded="true" signature="4674:4784" ph="..." />
-                <marker date="1521121448864" expanded="true" signature="4845:4979" ph="..." />
-                <marker date="1521121448864" expanded="true" signature="5139:5417" ph="..." />
-                <marker date="1521121448864" expanded="true" signature="5633:6068" ph="..." />
-                <marker date="1521121448864" expanded="true" signature="5831:5919" ph="..." />
-                <marker date="1521121448864" expanded="true" signature="5933:6068" ph="..." />
-                <marker date="1521121448864" expanded="true" signature="6247:6466" ph="..." />
-                <marker date="1521121448864" expanded="true" signature="6897:7328" ph="..." />
-                <marker date="1521121448864" expanded="true" signature="7160:7328" ph="..." />
-              </folding>
+            <state relative-caret-position="571">
+              <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,58 +62,9 @@
       <file leaf-file-name="Peer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Napster/modules/Peer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1290">
+            <state relative-caret-position="1395">
               <caret line="101" column="24" lean-forward="false" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="24" />
-              <folding>
-                <marker date="1521121448840" expanded="false" signature="15:301" ph="import ..." />
-                <marker date="1521121448840" expanded="true" signature="328:817" ph="&quot;&quot;&quot;Rappresenta il peer corrente...&quot;&quot;&quot;" />
-                <marker date="1521121448840" expanded="true" signature="1153:1557" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="1162:1215" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448840" expanded="true" signature="1310:1528" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="1341:1528" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="1579:3054" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="1588:1654" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448840" expanded="true" signature="1843:2386" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="2552:3054" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="2677:3054" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="2923:3054" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="3077:4430" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="3086:3162" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448840" expanded="true" signature="3319:3699" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="3865:4430" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="4022:4345" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="4452:7129" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="4461:4571" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448840" expanded="true" signature="4618:7129" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="5144:7129" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="5317:7129" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="5382:7040" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="5460:7040" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="5802:6392" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="6658:7040" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="6830:7040" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="7152:9780" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="7161:7226" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448840" expanded="true" signature="7274:9780" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="7856:9780" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="8029:9780" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="8094:9691" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="8172:9691" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="8494:9057" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="9323:9691" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="9812:10047" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448840" expanded="true" signature="10513:11125" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="12315:13863" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="12375:13863" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="13095:13753" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="14660:15427" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="15177:15427" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="15798:16181" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="15926:16181" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="16009:16181" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="16296:17077" ph="..." />
-                <marker date="1521121448840" expanded="true" signature="16827:17077" ph="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,24 +72,9 @@
       <file leaf-file-name="PeerServer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Napster/modules/PeerServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="600">
               <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-              <folding>
-                <marker date="1521121448843" expanded="true" signature="15:177" ph="import ..." />
-                <marker date="1521121448843" expanded="true" signature="220:1071" ph="&quot;&quot;&quot;Server multithread che gestisce le connessionni in entrata e l'upload dei file agli altri peer...&quot;&quot;&quot;" />
-                <marker date="1521121448843" expanded="true" signature="1289:1908" ph="..." />
-                <marker date="1521121448843" expanded="true" signature="1298:1748" ph="&quot;&quot;&quot;Costruttore della classe PeerServer...&quot;&quot;&quot;" />
-                <marker date="1521121448843" expanded="true" signature="1928:4184" ph="..." />
-                <marker date="1521121448843" expanded="true" signature="1937:2071" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448843" expanded="true" signature="2370:4129" ph="..." />
-                <marker date="1521121448843" expanded="true" signature="2404:4129" ph="..." />
-                <marker date="1521121448843" expanded="true" signature="2602:4129" ph="..." />
-                <marker date="1521121448843" expanded="true" signature="2649:3364" ph="..." />
-                <marker date="1521121448843" expanded="true" signature="2725:3248" ph="..." />
-                <marker date="1521121448843" expanded="true" signature="3414:4129" ph="..." />
-                <marker date="1521121448843" expanded="true" signature="3490:4013" ph="..." />
-                <marker date="1521121448843" expanded="true" signature="4214:4348" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -181,25 +82,9 @@
       <file leaf-file-name="Download.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Napster/modules/Download.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
+            <state relative-caret-position="870">
               <caret line="61" column="84" lean-forward="false" selection-start-line="61" selection-start-column="84" selection-end-line="61" selection-end-column="84" />
-              <folding>
-                <marker date="1521121448834" expanded="true" signature="15:171" ph="import ..." />
-                <marker date="1521121448834" expanded="true" signature="207:962" ph="..." />
-                <marker date="1521121448834" expanded="true" signature="212:554" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448834" expanded="true" signature="822:945" ph="..." />
-                <marker date="1521121448834" expanded="true" signature="1040:4820" ph="..." />
-                <marker date="1521121448834" expanded="true" signature="1045:1651" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448834" expanded="true" signature="1892:2227" ph="..." />
-                <marker date="1521121448834" expanded="true" signature="2362:4820" ph="..." />
-                <marker date="1521121448834" expanded="true" signature="2421:4743" ph="..." />
-                <marker date="1521121448834" expanded="true" signature="2961:3914" ph="..." />
-                <marker date="1521121448834" expanded="true" signature="3180:3571" ph="..." />
-                <marker date="1521121448834" expanded="true" signature="3613:3692" ph="..." />
-                <marker date="1521121448834" expanded="true" signature="3729:3803" ph="..." />
-                <marker date="1521121448834" expanded="true" signature="3842:3914" ph="..." />
-                <marker date="1521121448834" expanded="true" signature="4881:5125" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -207,23 +92,9 @@
       <file leaf-file-name="PeerHandler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Napster/modules/PeerHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
+            <state relative-caret-position="2130">
               <caret line="144" column="93" lean-forward="false" selection-start-line="144" selection-start-column="93" selection-end-line="144" selection-end-column="93" />
-              <folding>
-                <marker date="1521121448842" expanded="false" signature="15:140" ph="import ..." />
-                <marker date="1521121448842" expanded="true" signature="184:529" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448842" expanded="true" signature="645:1138" ph="..." />
-                <marker date="1521121448842" expanded="true" signature="654:1012" ph="&quot;&quot;&quot;Costruttore della classe PeerHandler...&quot;&quot;&quot;" />
-                <marker date="1521121448842" expanded="true" signature="1166:1466" ph="..." />
-                <marker date="1521121448842" expanded="true" signature="1175:1340" ph="&quot;&quot;&quot;Calcola la dimensione del file...&quot;&quot;&quot;" />
-                <marker date="1521121448842" expanded="true" signature="1495:1635" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1521121448842" expanded="true" signature="2028:2225" ph="..." />
-                <marker date="1521121448842" expanded="true" signature="2532:2705" ph="..." />
-                <marker date="1521121448842" expanded="true" signature="3780:5985" ph="..." />
-                <marker date="1521121448842" expanded="true" signature="4385:5130" ph="..." />
-                <marker date="1521121448842" expanded="true" signature="4466:4977" ph="..." />
-                <marker date="1521121448842" expanded="true" signature="5181:5519" ph="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -241,16 +112,9 @@
       <file leaf-file-name="helpers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Napster/modules/helpers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="90">
               <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-              <folding>
-                <marker date="1521121448850" expanded="true" signature="122:641" ph="..." />
-                <marker date="1521121448850" expanded="true" signature="127:493" ph="&quot;&quot;&quot;Esegue la funzione di hash sul contenuto del file per ottenere l'md5...&quot;&quot;&quot;" />
-                <marker date="1521121448850" expanded="true" signature="549:611" ph="..." />
-                <marker date="1521121448850" expanded="true" signature="689:1197" ph="..." />
-                <marker date="1521121448850" expanded="true" signature="694:910" ph="&quot;&quot;&quot;Stampa la barra di progresso di download e upload...&quot;&quot;&quot;" />
-                <marker date="1521121448850" expanded="true" signature="1217:1462" ph="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -287,8 +151,8 @@
         <option value="$PROJECT_DIR$/Napster/modules/Peer.py" />
         <option value="$PROJECT_DIR$/Napster/modules/Connection.py" />
         <option value="$PROJECT_DIR$/Napster/modules/Download.py" />
-        <option value="$PROJECT_DIR$/Napster/main.py" />
         <option value="$PROJECT_DIR$/Napster/modules/config.py" />
+        <option value="$PROJECT_DIR$/Napster/main.py" />
       </list>
     </option>
   </component>
@@ -318,8 +182,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -336,6 +198,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -452,23 +316,31 @@
       <option name="project" value="LOCAL" />
       <updated>1521121434162</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="another fix">
+      <created>1521126595113</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1521126595113</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="973" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1971917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1996337" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3997722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -515,14 +387,15 @@
     <MESSAGE value="fix generale di varie print" />
     <MESSAGE value="- pulizia" />
     <MESSAGE value="- configurazione iniziale + ascii art perchè fa figo" />
-    <option name="LAST_COMMIT_MESSAGE" value="- configurazione iniziale + ascii art perchè fa figo" />
+    <MESSAGE value="another fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="another fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Napster/main.py</url>
-          <line>137</line>
+          <line>138</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
@@ -535,22 +408,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-          <folding>
-            <marker date="1521121448843" expanded="true" signature="15:177" ph="import ..." />
-            <marker date="1521121448843" expanded="true" signature="220:1071" ph="&quot;&quot;&quot;Server multithread che gestisce le connessionni in entrata e l'upload dei file agli altri peer...&quot;&quot;&quot;" />
-            <marker date="1521121448843" expanded="true" signature="1289:1908" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="1298:1748" ph="&quot;&quot;&quot;Costruttore della classe PeerServer...&quot;&quot;&quot;" />
-            <marker date="1521121448843" expanded="true" signature="1928:4184" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="1937:2071" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448843" expanded="true" signature="2370:4129" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="2404:4129" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="2602:4129" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="2649:3364" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="2725:3248" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="3414:4129" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="3490:4013" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="4214:4348" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -558,23 +416,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="55" column="84" lean-forward="true" selection-start-line="55" selection-start-column="84" selection-end-line="55" selection-end-column="84" />
-          <folding>
-            <marker date="1521121448834" expanded="true" signature="15:171" ph="import ..." />
-            <marker date="1521121448834" expanded="true" signature="207:962" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="212:554" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448834" expanded="true" signature="822:945" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="1040:4820" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="1045:1651" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448834" expanded="true" signature="1892:2227" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2362:4820" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2421:4743" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2961:3914" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3180:3571" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3613:3692" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3729:3803" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3842:3914" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="4881:5125" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -582,21 +424,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2040">
           <caret line="138" column="93" lean-forward="false" selection-start-line="138" selection-start-column="93" selection-end-line="138" selection-end-column="93" />
-          <folding>
-            <marker date="1521121448842" expanded="false" signature="15:140" ph="import ..." />
-            <marker date="1521121448842" expanded="true" signature="184:529" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="645:1138" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="654:1012" ph="&quot;&quot;&quot;Costruttore della classe PeerHandler...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1166:1466" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="1175:1340" ph="&quot;&quot;&quot;Calcola la dimensione del file...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1495:1635" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="2028:2225" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="2532:2705" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="3780:5985" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4385:5130" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4466:4977" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="5181:5519" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -604,14 +432,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="10" lean-forward="true" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
-          <folding>
-            <marker date="1521121448850" expanded="true" signature="122:641" ph="..." />
-            <marker date="1521121448850" expanded="true" signature="127:493" ph="&quot;&quot;&quot;Esegue la funzione di hash sul contenuto del file per ottenere l'md5...&quot;&quot;&quot;" />
-            <marker date="1521121448850" expanded="true" signature="549:611" ph="..." />
-            <marker date="1521121448850" expanded="true" signature="689:1197" ph="..." />
-            <marker date="1521121448850" expanded="true" signature="694:910" ph="&quot;&quot;&quot;Stampa la barra di progresso di download e upload...&quot;&quot;&quot;" />
-            <marker date="1521121448850" expanded="true" signature="1217:1462" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -627,9 +448,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1521121448847" expanded="true" signature="87:358" ph="&quot;&quot;&quot;Rappresenta un file disponibile per la condivisione...&quot;&quot;&quot;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -644,26 +463,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="87" column="10" lean-forward="false" selection-start-line="87" selection-start-column="10" selection-end-line="87" selection-end-column="10" />
-          <folding>
-            <marker date="1521121448830" expanded="true" signature="15:137" ph="import ..." />
-            <marker date="1521121448830" expanded="true" signature="162:356" ph="&quot;&quot;&quot;Crea le connessioni a directory e peers...&quot;&quot;&quot;" />
-            <marker date="1521121448830" expanded="true" signature="465:911" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="474:705" ph="&quot;&quot;&quot;Costruttore della classe Connection...&quot;&quot;&quot;" />
-            <marker date="1521121448830" expanded="true" signature="794:911" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="935:2381" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="944:1114" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448830" expanded="true" signature="1199:1782" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="1421:1606" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="1646:1782" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="1797:2381" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="2020:2205" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="2245:2381" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="2407:3170" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="2416:2566" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448830" expanded="true" signature="2795:2995" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="3031:3170" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="3205:3355" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -671,21 +471,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
           <caret line="92" column="47" lean-forward="false" selection-start-line="92" selection-start-column="47" selection-end-line="92" selection-end-column="47" />
-          <folding>
-            <marker date="1521121448842" expanded="false" signature="15:140" ph="import ..." />
-            <marker date="1521121448842" expanded="true" signature="184:529" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="645:1138" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="654:1012" ph="&quot;&quot;&quot;Costruttore della classe PeerHandler...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1166:1466" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="1175:1340" ph="&quot;&quot;&quot;Calcola la dimensione del file...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1495:1635" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="2028:2225" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="2532:2705" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="3780:5985" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4385:5130" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4466:4977" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="5181:5519" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -693,56 +479,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3225">
           <caret line="223" column="57" lean-forward="false" selection-start-line="223" selection-start-column="57" selection-end-line="223" selection-end-column="57" />
-          <folding>
-            <marker date="1521121448840" expanded="false" signature="15:301" ph="import ..." />
-            <marker date="1521121448840" expanded="true" signature="328:817" ph="&quot;&quot;&quot;Rappresenta il peer corrente...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="1153:1557" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="1162:1215" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="1310:1528" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="1341:1528" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="1579:3054" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="1588:1654" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="1843:2386" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="2552:3054" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="2677:3054" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="2923:3054" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="3077:4430" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="3086:3162" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="3319:3699" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="3865:4430" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="4022:4345" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="4452:7129" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="4461:4571" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="4618:7129" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5144:7129" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5317:7129" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5382:7040" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5460:7040" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5802:6392" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="6658:7040" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="6830:7040" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="7152:9780" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="7161:7226" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="7274:9780" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="7856:9780" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="8029:9780" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="8094:9691" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="8172:9691" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="8494:9057" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="9323:9691" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="9812:10047" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="10513:11125" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="12315:13863" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="12375:13863" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="13095:13753" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="14660:15427" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="15177:15427" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="15798:16181" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="15926:16181" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="16009:16181" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="16296:17077" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="16827:17077" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -750,23 +487,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1965">
           <caret line="134" column="26" lean-forward="true" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
-          <folding>
-            <marker date="1521121448834" expanded="true" signature="15:171" ph="import ..." />
-            <marker date="1521121448834" expanded="true" signature="207:962" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="212:554" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448834" expanded="true" signature="822:945" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="1040:4820" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="1045:1651" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448834" expanded="true" signature="1892:2227" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2362:4820" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2421:4743" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2961:3914" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3180:3571" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3613:3692" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3729:3803" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3842:3914" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="4881:5125" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -774,14 +495,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="10" lean-forward="true" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
-          <folding>
-            <marker date="1521121448850" expanded="true" signature="122:641" ph="..." />
-            <marker date="1521121448850" expanded="true" signature="127:493" ph="&quot;&quot;&quot;Esegue la funzione di hash sul contenuto del file per ottenere l'md5...&quot;&quot;&quot;" />
-            <marker date="1521121448850" expanded="true" signature="549:611" ph="..." />
-            <marker date="1521121448850" expanded="true" signature="689:1197" ph="..." />
-            <marker date="1521121448850" expanded="true" signature="694:910" ph="&quot;&quot;&quot;Stampa la barra di progresso di download e upload...&quot;&quot;&quot;" />
-            <marker date="1521121448850" expanded="true" signature="1217:1462" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -804,23 +518,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
-          <folding>
-            <marker date="1521121448864" expanded="true" signature="15:185" ph="import ..." />
-            <marker date="1521121448864" expanded="true" signature="188:248" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="256:4066" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448864" expanded="true" signature="4117:4238" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4301:4414" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4477:4613" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4674:4784" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4845:4979" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5139:5417" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5633:6068" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5831:5919" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5933:6068" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="6247:6466" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="6897:7328" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="7160:7328" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -828,26 +526,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="87" column="10" lean-forward="false" selection-start-line="87" selection-start-column="10" selection-end-line="87" selection-end-column="10" />
-          <folding>
-            <marker date="1521121448830" expanded="true" signature="15:137" ph="import ..." />
-            <marker date="1521121448830" expanded="true" signature="162:356" ph="&quot;&quot;&quot;Crea le connessioni a directory e peers...&quot;&quot;&quot;" />
-            <marker date="1521121448830" expanded="true" signature="465:911" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="474:705" ph="&quot;&quot;&quot;Costruttore della classe Connection...&quot;&quot;&quot;" />
-            <marker date="1521121448830" expanded="true" signature="794:911" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="935:2381" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="944:1114" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448830" expanded="true" signature="1199:1782" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="1421:1606" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="1646:1782" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="1797:2381" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="2020:2205" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="2245:2381" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="2407:3170" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="2416:2566" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448830" expanded="true" signature="2795:2995" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="3031:3170" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="3205:3355" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -855,22 +534,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1470">
           <caret line="98" column="22" lean-forward="false" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
-          <folding>
-            <marker date="1521121448843" expanded="true" signature="15:177" ph="import ..." />
-            <marker date="1521121448843" expanded="true" signature="220:1071" ph="&quot;&quot;&quot;Server multithread che gestisce le connessionni in entrata e l'upload dei file agli altri peer...&quot;&quot;&quot;" />
-            <marker date="1521121448843" expanded="true" signature="1289:1908" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="1298:1748" ph="&quot;&quot;&quot;Costruttore della classe PeerServer...&quot;&quot;&quot;" />
-            <marker date="1521121448843" expanded="true" signature="1928:4184" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="1937:2071" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448843" expanded="true" signature="2370:4129" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="2404:4129" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="2602:4129" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="2649:3364" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="2725:3248" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="3414:4129" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="3490:4013" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="4214:4348" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -878,21 +542,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1110">
           <caret line="76" column="21" lean-forward="false" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
-          <folding>
-            <marker date="1521121448842" expanded="false" signature="15:140" ph="import ..." />
-            <marker date="1521121448842" expanded="true" signature="184:529" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="645:1138" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="654:1012" ph="&quot;&quot;&quot;Costruttore della classe PeerHandler...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1166:1466" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="1175:1340" ph="&quot;&quot;&quot;Calcola la dimensione del file...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1495:1635" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="2028:2225" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="2532:2705" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="3780:5985" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4385:5130" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4466:4977" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="5181:5519" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -907,23 +557,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="55" column="61" lean-forward="false" selection-start-line="55" selection-start-column="61" selection-end-line="55" selection-end-column="61" />
-          <folding>
-            <marker date="1521121448834" expanded="true" signature="15:171" ph="import ..." />
-            <marker date="1521121448834" expanded="true" signature="207:962" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="212:554" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448834" expanded="true" signature="822:945" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="1040:4820" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="1045:1651" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448834" expanded="true" signature="1892:2227" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2362:4820" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2421:4743" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2961:3914" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3180:3571" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3613:3692" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3729:3803" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3842:3914" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="4881:5125" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -931,56 +565,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1170">
           <caret line="86" column="21" lean-forward="true" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="21" />
-          <folding>
-            <marker date="1521121448840" expanded="false" signature="15:301" ph="import ..." />
-            <marker date="1521121448840" expanded="true" signature="328:817" ph="&quot;&quot;&quot;Rappresenta il peer corrente...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="1153:1557" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="1162:1215" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="1310:1528" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="1341:1528" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="1579:3054" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="1588:1654" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="1843:2386" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="2552:3054" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="2677:3054" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="2923:3054" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="3077:4430" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="3086:3162" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="3319:3699" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="3865:4430" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="4022:4345" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="4452:7129" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="4461:4571" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="4618:7129" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5144:7129" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5317:7129" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5382:7040" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5460:7040" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5802:6392" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="6658:7040" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="6830:7040" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="7152:9780" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="7161:7226" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="7274:9780" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="7856:9780" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="8029:9780" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="8094:9691" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="8172:9691" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="8494:9057" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="9323:9691" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="9812:10047" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="10513:11125" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="12315:13863" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="12375:13863" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="13095:13753" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="14660:15427" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="15177:15427" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="15798:16181" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="15926:16181" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="16009:16181" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="16296:17077" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="16827:17077" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -996,23 +581,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="47" column="14" lean-forward="false" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
-          <folding>
-            <marker date="1521121448864" expanded="true" signature="15:185" ph="import ..." />
-            <marker date="1521121448864" expanded="true" signature="188:248" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="256:4066" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448864" expanded="true" signature="4117:4238" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4301:4414" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4477:4613" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4674:4784" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4845:4979" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5139:5417" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5633:6068" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5831:5919" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5933:6068" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="6247:6466" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="6897:7328" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="7160:7328" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1020,21 +589,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1845">
           <caret line="125" column="38" lean-forward="false" selection-start-line="125" selection-start-column="38" selection-end-line="125" selection-end-column="38" />
-          <folding>
-            <marker date="1521121448842" expanded="false" signature="15:140" ph="import ..." />
-            <marker date="1521121448842" expanded="true" signature="184:529" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="645:1138" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="654:1012" ph="&quot;&quot;&quot;Costruttore della classe PeerHandler...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1166:1466" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="1175:1340" ph="&quot;&quot;&quot;Calcola la dimensione del file...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1495:1635" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="2028:2225" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="2532:2705" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="3780:5985" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4385:5130" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4466:4977" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="5181:5519" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1042,23 +597,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1410">
           <caret line="97" column="82" lean-forward="false" selection-start-line="97" selection-start-column="82" selection-end-line="97" selection-end-column="82" />
-          <folding>
-            <marker date="1521121448834" expanded="true" signature="15:171" ph="import ..." />
-            <marker date="1521121448834" expanded="true" signature="207:962" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="212:554" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448834" expanded="true" signature="822:945" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="1040:4820" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="1045:1651" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448834" expanded="true" signature="1892:2227" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2362:4820" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2421:4743" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2961:3914" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3180:3571" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3613:3692" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3729:3803" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3842:3914" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="4881:5125" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1081,23 +620,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
           <caret line="47" column="14" lean-forward="true" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
-          <folding>
-            <marker date="1521121448864" expanded="true" signature="15:185" ph="import ..." />
-            <marker date="1521121448864" expanded="true" signature="188:248" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="256:4066" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448864" expanded="true" signature="4117:4238" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4301:4414" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4477:4613" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4674:4784" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4845:4979" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5139:5417" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5633:6068" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5831:5919" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5933:6068" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="6247:6466" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="6897:7328" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="7160:7328" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1105,21 +628,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1875">
           <caret line="125" column="38" lean-forward="false" selection-start-line="125" selection-start-column="38" selection-end-line="125" selection-end-column="38" />
-          <folding>
-            <marker date="1521121448842" expanded="false" signature="15:140" ph="import ..." />
-            <marker date="1521121448842" expanded="true" signature="184:529" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="645:1138" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="654:1012" ph="&quot;&quot;&quot;Costruttore della classe PeerHandler...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1166:1466" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="1175:1340" ph="&quot;&quot;&quot;Calcola la dimensione del file...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1495:1635" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="2028:2225" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="2532:2705" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="3780:5985" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4385:5130" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4466:4977" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="5181:5519" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1127,23 +636,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1455">
           <caret line="97" column="82" lean-forward="true" selection-start-line="97" selection-start-column="82" selection-end-line="97" selection-end-column="82" />
-          <folding>
-            <marker date="1521121448834" expanded="true" signature="15:171" ph="import ..." />
-            <marker date="1521121448834" expanded="true" signature="207:962" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="212:554" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448834" expanded="true" signature="822:945" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="1040:4820" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="1045:1651" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448834" expanded="true" signature="1892:2227" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2362:4820" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2421:4743" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2961:3914" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3180:3571" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3613:3692" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3729:3803" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3842:3914" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="4881:5125" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1166,23 +659,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
           <caret line="47" column="14" lean-forward="true" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
-          <folding>
-            <marker date="1521121448864" expanded="true" signature="15:185" ph="import ..." />
-            <marker date="1521121448864" expanded="true" signature="188:248" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="256:4066" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448864" expanded="true" signature="4117:4238" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4301:4414" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4477:4613" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4674:4784" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4845:4979" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5139:5417" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5633:6068" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5831:5919" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5933:6068" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="6247:6466" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="6897:7328" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="7160:7328" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1191,21 +668,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2304">
           <caret line="130" column="51" lean-forward="false" selection-start-line="130" selection-start-column="51" selection-end-line="130" selection-end-column="51" />
-          <folding>
-            <marker date="1521121448842" expanded="false" signature="15:140" ph="import ..." />
-            <marker date="1521121448842" expanded="true" signature="184:529" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="645:1138" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="654:1012" ph="&quot;&quot;&quot;Costruttore della classe PeerHandler...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1166:1466" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="1175:1340" ph="&quot;&quot;&quot;Calcola la dimensione del file...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1495:1635" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="2028:2225" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="2532:2705" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="3780:5985" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4385:5130" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4466:4977" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="5181:5519" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1235,84 +698,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1521121448847" expanded="true" signature="87:358" ph="&quot;&quot;&quot;Rappresenta un file disponibile per la condivisione...&quot;&quot;&quot;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Napster/modules/PeerServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="600">
           <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-          <folding>
-            <marker date="1521121448843" expanded="true" signature="15:177" ph="import ..." />
-            <marker date="1521121448843" expanded="true" signature="220:1071" ph="&quot;&quot;&quot;Server multithread che gestisce le connessionni in entrata e l'upload dei file agli altri peer...&quot;&quot;&quot;" />
-            <marker date="1521121448843" expanded="true" signature="1289:1908" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="1298:1748" ph="&quot;&quot;&quot;Costruttore della classe PeerServer...&quot;&quot;&quot;" />
-            <marker date="1521121448843" expanded="true" signature="1928:4184" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="1937:2071" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448843" expanded="true" signature="2370:4129" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="2404:4129" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="2602:4129" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="2649:3364" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="2725:3248" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="3414:4129" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="3490:4013" ph="..." />
-            <marker date="1521121448843" expanded="true" signature="4214:4348" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Napster/modules/share/bg1.jpg" />
-    <entry file="file://$PROJECT_DIR$/Napster/modules/Connection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="73" column="49" lean-forward="false" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
-          <folding>
-            <marker date="1521121448830" expanded="true" signature="15:137" ph="import ..." />
-            <marker date="1521121448830" expanded="true" signature="162:356" ph="&quot;&quot;&quot;Crea le connessioni a directory e peers...&quot;&quot;&quot;" />
-            <marker date="1521121448830" expanded="true" signature="465:911" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="474:705" ph="&quot;&quot;&quot;Costruttore della classe Connection...&quot;&quot;&quot;" />
-            <marker date="1521121448830" expanded="true" signature="794:911" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="935:2381" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="944:1114" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448830" expanded="true" signature="1199:1782" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="1421:1606" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="1646:1782" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="1797:2381" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="2020:2205" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="2245:2381" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="2407:3170" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="2416:2566" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448830" expanded="true" signature="2795:2995" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="3031:3170" ph="..." />
-            <marker date="1521121448830" expanded="true" signature="3205:3355" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Napster/modules/Download.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
+        <state relative-caret-position="870">
           <caret line="61" column="84" lean-forward="false" selection-start-line="61" selection-start-column="84" selection-end-line="61" selection-end-column="84" />
-          <folding>
-            <marker date="1521121448834" expanded="true" signature="15:171" ph="import ..." />
-            <marker date="1521121448834" expanded="true" signature="207:962" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="212:554" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448834" expanded="true" signature="822:945" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="1040:4820" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="1045:1651" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448834" expanded="true" signature="1892:2227" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2362:4820" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2421:4743" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="2961:3914" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3180:3571" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3613:3692" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3729:3803" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="3842:3914" ph="..." />
-            <marker date="1521121448834" expanded="true" signature="4881:5125" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1325,38 +728,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Napster/modules/helpers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="90">
           <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-          <folding>
-            <marker date="1521121448850" expanded="true" signature="122:641" ph="..." />
-            <marker date="1521121448850" expanded="true" signature="127:493" ph="&quot;&quot;&quot;Esegue la funzione di hash sul contenuto del file per ottenere l'md5...&quot;&quot;&quot;" />
-            <marker date="1521121448850" expanded="true" signature="549:611" ph="..." />
-            <marker date="1521121448850" expanded="true" signature="689:1197" ph="..." />
-            <marker date="1521121448850" expanded="true" signature="694:910" ph="&quot;&quot;&quot;Stampa la barra di progresso di download e upload...&quot;&quot;&quot;" />
-            <marker date="1521121448850" expanded="true" signature="1217:1462" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Napster/modules/PeerHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
+        <state relative-caret-position="2130">
           <caret line="144" column="93" lean-forward="false" selection-start-line="144" selection-start-column="93" selection-end-line="144" selection-end-column="93" />
-          <folding>
-            <marker date="1521121448842" expanded="false" signature="15:140" ph="import ..." />
-            <marker date="1521121448842" expanded="true" signature="184:529" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="645:1138" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="654:1012" ph="&quot;&quot;&quot;Costruttore della classe PeerHandler...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1166:1466" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="1175:1340" ph="&quot;&quot;&quot;Calcola la dimensione del file...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="1495:1635" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448842" expanded="true" signature="2028:2225" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="2532:2705" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="3780:5985" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4385:5130" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="4466:4977" ph="..." />
-            <marker date="1521121448842" expanded="true" signature="5181:5519" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1370,89 +752,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Napster/modules/Peer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
+        <state relative-caret-position="1395">
           <caret line="101" column="24" lean-forward="false" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="24" />
-          <folding>
-            <marker date="1521121448840" expanded="false" signature="15:301" ph="import ..." />
-            <marker date="1521121448840" expanded="true" signature="328:817" ph="&quot;&quot;&quot;Rappresenta il peer corrente...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="1153:1557" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="1162:1215" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="1310:1528" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="1341:1528" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="1579:3054" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="1588:1654" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="1843:2386" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="2552:3054" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="2677:3054" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="2923:3054" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="3077:4430" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="3086:3162" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="3319:3699" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="3865:4430" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="4022:4345" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="4452:7129" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="4461:4571" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="4618:7129" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5144:7129" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5317:7129" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5382:7040" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5460:7040" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="5802:6392" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="6658:7040" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="6830:7040" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="7152:9780" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="7161:7226" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="7274:9780" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="7856:9780" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="8029:9780" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="8094:9691" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="8172:9691" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="8494:9057" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="9323:9691" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="9812:10047" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448840" expanded="true" signature="10513:11125" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="12315:13863" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="12375:13863" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="13095:13753" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="14660:15427" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="15177:15427" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="15798:16181" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="15926:16181" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="16009:16181" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="16296:17077" ph="..." />
-            <marker date="1521121448840" expanded="true" signature="16827:17077" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Napster/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <marker date="1521121448864" expanded="true" signature="15:185" ph="import ..." />
-            <marker date="1521121448864" expanded="true" signature="188:248" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="256:4066" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1521121448864" expanded="true" signature="4117:4238" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4301:4414" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4477:4613" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4674:4784" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="4845:4979" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5139:5417" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5633:6068" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5831:5919" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="5933:6068" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="6247:6466" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="6897:7328" ph="..." />
-            <marker date="1521121448864" expanded="true" signature="7160:7328" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Napster/modules/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="135">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Napster/modules/Connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="801">
+          <caret line="73" column="49" lean-forward="false" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Napster/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
         </state>
       </provider>
