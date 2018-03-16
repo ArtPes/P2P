@@ -33,20 +33,21 @@ class Peer(object):
         directory: connessione alla directory
     """
 
-    session_id = None
-    my_ipv4 = config.CONFIG['my_ipv4']
-    my_ipv6 = config.CONFIG['my_ipv6']
-    my_port = config.CONFIG['my_port']
-    dir_ipv4 = config.CONFIG['dir_ipv4']
-    dir_ipv6 = config.CONFIG['dir_ipv6']
-    dir_port = config.CONFIG['dir_port']
-    files_list = []
-    directory = None
-
     def __init__(self, port):
         """
         Costruttore della classe Peer
         """
+
+        self.session_id = None
+        self.my_ipv4 = config.CONFIG['my_ipv4']
+        self.my_ipv6 = config.CONFIG['my_ipv6']
+        self.my_port = config.CONFIG['my_port']
+        self.dir_ipv4 = config.CONFIG['dir_ipv4']
+        self.dir_ipv6 = config.CONFIG['dir_ipv6']
+        self.dir_port = config.CONFIG['dir_port']
+        self.files_list = []
+        self.directory = None
+
         # Searching for shareable files
         for root, dirs, files in os.walk("shareable"):
             for file in files:
