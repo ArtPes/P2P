@@ -17,6 +17,11 @@ Eseguire dal terminale:
 ```
 
 
+## Gnutella (Directory Distribuita)
+
+## Kazaa (Directory Gerarchica)
+
+## BitTorrent (Parti Parallele)
 
 
 ## Authors :trollface:
