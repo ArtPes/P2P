@@ -71,11 +71,11 @@ class Peer(object):
             c = Connection(self.dir_ipv4, self.dir_ipv6, self.dir_port)  # Creazione connessione con la directory
             c.connect()
             self.directory = c.socket
-
             self.directory.send(msg.encode('utf-8'))  # Richiesta di login
             print('Message sent, waiting for response...')
             response_message = self.directory.recv(20).decode('ascii')  # Risposta della directory, deve contenere ALGI e il session id
             print('Directory responded: ' + response_message)
+            self.directory.close()
         except socket.error as msg:
             print("######################################################")
             print('Socket Error during Login: ' + str(msg))
@@ -107,6 +107,9 @@ class Peer(object):
 
         response_message = None
         try:
+            c = Connection(self.dir_ipv4, self.dir_ipv6, self.dir_port)  # Creazione connessione con la directory
+            c.connect()
+            self.directory = c.socket
             self.directory.send(msg.encode('utf-8'))  # Richeista di logout
             print('Message sent, waiting for response...')
             response_message = self.directory.recv(7).decode('ascii')  # Risposta della directory, deve contenere ALGO e il numero di file che erano stati condivisi
@@ -168,12 +171,12 @@ class Peer(object):
 
                             response_message = None
                             try:
-                                self.directory.send(
-                                    msg.encode('utf-8'))  # Richeista di aggiunta del file alla directory, deve contenere session id, md5 e nome del file
+                                c = Connection(self.dir_ipv4, self.dir_ipv6, self.dir_port)  # Creazione connessione con la directory
+                                c.connect()
+                                self.directory = c.socket
+                                self.directory.send(msg.encode('utf-8'))  # Richeista di aggiunta del file alla directory, deve contenere session id, md5 e nome del file
                                 print('Message sent, waiting for response...')
-
-                                response_message = self.directory.recv(
-                                    7).decode('ascii')  # Risposta della directory, deve contenere AADD ed il numero di copie del file già condivise
+                                response_message = self.directory.recv(7).decode('ascii')  # Risposta della directory, deve contenere AADD ed il numero di copie del file già condivise
                                 print('Directory responded: ' + response_message)
                             except socket.error as msg:
                                 print("######################################################")
@@ -188,6 +191,7 @@ class Peer(object):
                                     print('No response from directory.')
                                 else:
                                     print("Copies inside the directory: " + response_message[-3:])  # Copie del file nella directory
+                                self.directory.close()
 
                     if not found:
                         print('Option not available')
@@ -229,12 +233,13 @@ class Peer(object):
 
                             response_message = None
                             try:
-                                self.directory.send(
-                                    msg.encode('utf-8'))  # Richiesta di rimozione del file dalla directory, deve contenere session id e md5
+                                c = Connection(self.dir_ipv4, self.dir_ipv6, self.dir_port)  # Creazione connessione con la directory
+                                c.connect()
+                                self.directory = c.socket
+                                self.directory.send(msg.encode('utf-8'))  # Richiesta di rimozione del file dalla directory, deve contenere session id e md5
                                 print('Message sent, waiting for response...')
 
-                                response_message = self.directory.recv(
-                                    7).decode('ascii')  # Risposta della directory, deve contenere ADEL e il numero di copie rimanenti
+                                response_message = self.directory.recv(7).decode('ascii')  # Risposta della directory, deve contenere ADEL e il numero di copie rimanenti
                                 print('Directory responded: ' + response_message)
                             except socket.error as msg:
                                 print("######################################################")
@@ -249,6 +254,7 @@ class Peer(object):
                                     print("The file you chose doesn't exist in the directory")
                                 else:
                                     print("Copies left in the directory: " + response_message[-3:])  # Numero di copie rimanenti
+                                self.directory.close()
 
                     if not found:
                         print('Option not available')
@@ -273,12 +279,13 @@ class Peer(object):
             print('Find message: ' + msg)
             response_message = None
             try:
-                self.directory.send(
-                    msg.encode('utf-8'))  # Richeista di ricerca, deve contenere il session id ed il paramentro di ricerca (20 caratteri)
+                c = Connection(self.dir_ipv4, self.dir_ipv6, self.dir_port)  # Creazione connessione con la directory
+                c.connect()
+                self.directory = c.socket
+                self.directory.send(msg.encode('utf-8'))  # Richeista di ricerca, deve contenere il session id ed il paramentro di ricerca (20 caratteri)
                 print('Message sent, waiting for response...')
 
-                response_message = self.directory.recv(
-                    4).decode('ascii')  # Risposta della directory, deve contenere AFIN seguito dal numero di identificativi md5
+                response_message = self.directory.recv(4).decode('ascii')  # Risposta della directory, deve contenere AFIN seguito dal numero di identificativi md5
                 print(response_message)
                 # disponibili e dalla lista di file e peer che li hanno condivisi
                 print('Directory responded: ' + response_message)
@@ -342,7 +349,6 @@ class Peer(object):
                                         file_owners.append(Owner(owner_j_ipv4, owner_j_ipv6, owner_j_port))
 
                                     available_files.append(SharedFile(file_i_name, file_i_md5, file_owners))
-
                             except socket.error as msg:
                                 print("######################################################")
                                 print('Socket Error while retrieving files details : ' + str(msg))
@@ -413,3 +419,4 @@ class Peer(object):
                             print("###############################")
                             print("Unknown error, check your code!")
                             print("###############################")
+                        self.directory.close()
