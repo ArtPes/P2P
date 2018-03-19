@@ -114,5 +114,3 @@ class Connection:
             print(self.ipv6 + " " + str(self.port))
             print("######################################################")
 
-    def close(self):
-        self.socket.close()

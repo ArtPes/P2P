@@ -411,12 +411,15 @@ class Peer(object):
 
                                 for idx2, owner in enumerate(file_to_download.owners):  # Download del file selezionato
                                     if selected_peer == idx2:
-                                        print(
-                                            "Downloading file from: " + owner.ipv4 + " | " + owner.ipv6 + " " + owner.port)
-                                        get_file(self.session_id, owner.ipv4, owner.ipv6, owner.port, file_to_download,
-                                                 self.directory)
+                                        print("Downloading file from: " + owner.ipv4 + " | " + owner.ipv6 + " " + owner.port)
+                                        self.directory.close()
+                                        c = Connection(self.dir_ipv4, self.dir_ipv6, self.dir_port)  # Creazione connessione con la directory
+                                        c.connect()
+                                        self.directory = c.socket
+                                        get_file(self.session_id, owner.ipv4, owner.ipv6, owner.port, file_to_download, self.directory)
+                                        self.directory.close()
+
                         else:
                             print("###############################")
                             print("Unknown error, check your code!")
                             print("###############################")
-                        self.directory.close()

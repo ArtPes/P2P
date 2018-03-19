@@ -10,7 +10,6 @@ import hashlib
 from modules.Connection import *
 from modules.helpers import *
 
-
 def recvall(socket, chunk_size):
     """
     Legge dalla socket un certo numero di byte, evitando letture inferiori alla dimensione specificata
