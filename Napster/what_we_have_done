@@ -19,9 +19,34 @@ sessionID, l'md5 del file e il nome del file con un "padding" a 100 Byte. La dir
 di quel file nella directory. In questo modo il file ora è "scaricabile" da altri peer.
 
 ###################################################################################################################################################
+Arturo:
 
+***Rimozione***
+Ogni peer registrato può rimuovere un file che ha messo a disposizione dalla directory. La rimozione avviene specificando l’identificativo md5 del
+file da eliminare. Il pacchetto di risposta riporta quante versioni del file con lo stesso md5 #copy sono presenti nella directory, dopo la 
+rimozione. Nel caso venga eliminato un file non presente non viene effettuata alcuna operazione sulla directory e #copy è posto a 999 per indicare
+al peer la assenza.
+
+IPP2P:RND <> IPD:3000
+> “DELF”[4B].SessionID[16B].Filemd5[32B]
+< “ADEL”[4B].#copy[3B]
+
+
+***Ricerca***
+La ricerca di un file avviene indicando una stringa di ricerca di 20B. Tale stringa viene utilizzata per effettuare una ricerca case insensitive
+su tutti i titoli presenti, trovando tutti gli md5 relativi ad ogni occorrenza della stringa stessa. Sono possibili più riscontri di differenti
+titoli, con differente identificativo relativo alla stessa stringa di ricerca e per ogni identificativo sono possibili più peer che lo mettano
+a disposizione. La risposta è quindi articolata nel numero complessivo di identificativi md5 #idmd5 dove per ognuno di essi viene riportato
+l’identificativo md5, il nome del file e il numero di copie presenti #copy, mentre per ogni copia viene riportato l’IP e la porta del peer.
+Nel caso in cui non vi sia alcun riscontro si ha #idmd5=0. Una stringa di ricerca composta dal solo carattere * rappresenta il match con tutte
+le stringhe e permette di avere informazioni sull’intero contenuto della directory.
+
+IPP2P:RND <> IPD:3000
+> “FIND”[4B].SessionID[16B].Ricerca[20B]
+< “AFIN”[4B].#idmd5[3B].{Filemd5_i[32B].Filename_i[100B].#copy_i[3B].
+{IPP2P_i_j[55B].PP2P_i_j[5B]}}(j=1..#copy_i)}(i=1..#idmd5)
+
+###################################################################################################################################################
 Luca:
 Download e Upload
 
-Arturo:
-Ricerca e RemoveFile
