@@ -1,6 +1,24 @@
-
+###################################################################################################################################################
 Daniele:
-Login, Logout, Addfile
+
+***Login***
+Quando un peer si connette alla directory, viene inviato il messaggio di LOGIN, contenente i 4 Byte "LOGI", indirizzo v6, indirizzo v4 e porta.
+La directory risponde con un messaggio contenente "ALGI" + sessionID. In caso di errore da parte della directory, il sessionID assegnato è
+una stringa di 16 Byte a zero. In questo modo la procedura di login è completa.
+
+***Logout***
+Quando un peer richiede alla directory il logout, viene inviato un messaggio con "LOGO" + sessionID. La directory risponde con un messaggio
+contentente "ALGO" + il numero di file condivisi. Una volta effettuato il logout la directory dovrebbe eliminare dal suo database tutti i file
+da me condivisi. Una volta effettuato il logout, aspetto gli eventuali processi che stanno completando l'upload del file verso altri peer e poi
+chiudo il programma.
+
+***ADDFile***
+Per l'aggiunta di un file, il programma fa una lista dei file presenti nella cartella "shareable" e chiede all'utente quale di questi vuole che sia
+condiviso con altri peer. Alla directory viene quindi inviato un messaggio contenente i primi 4 Byte con "ADDF" (istruzione di add file), il
+sessionID, l'md5 del file e il nome del file con un "padding" a 100 Byte. La directory risponde con un "AADD" ed il numero di copie già presenti
+di quel file nella directory. In questo modo il file ora è "scaricabile" da altri peer.
+
+###################################################################################################################################################
 
 Luca:
 Download e Upload
