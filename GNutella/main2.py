@@ -6,13 +6,15 @@ from helpermodules.output_monitor import output
 import subprocess
 
 output_lock = threading.Lock()
+#dbname = input('Inserisci nome db:')
+#db = MongoConnection('localhost', 27017, dbname)
 db = MongoConnection()
 db.initializeFiles()
 counterProcesses = []
 
-#proc = subprocess.Popen(args=["xfce4-terminal", "-e", 'bash -c "python3 server/server.py; bash"'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
+proc = subprocess.Popen(args=["gnome-terminal", "--command=python ./server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
 
-#counterProcesses.append(proc)
+counterProcesses.append(proc)
 ttl="02"
 
 while True:
@@ -49,7 +51,8 @@ while True:
                     searchStr = input()
                     pktId = id_generator(16)
                     command = "./helpermodules/sleepProcess.py"
-                    counterProcesses.append(subprocess.Popen(["python", command, str(int_option), str(ttl), searchStr, str(pktId) ], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
+                    #counterProcesses.append(subprocess.Popen(["python", command, str(int_option), str(ttl), searchStr, str(pktId)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
+                    counterProcesses.append(subprocess.Popen(["gnome-terminal", "--command=python " + command + " " + str(int_option) + " " + str(ttl) + " " + searchStr + " " + str(pktId)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
 
                     whatNow(output_lock, db, pktId)
 

@@ -23,7 +23,8 @@ class Connection:
         Crea una socket TCP selezionando un indirizzo a caso (con probabilità 50/50) tra ipv4 e ipv6
         Da utilizzare per le richieste alle directory
         """
-        if random.choice((True, False)):
+        self.ipv4 =  remove_zero(self.ipv4)
+        if random.choice((True,False)):
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)                 # creazione socket ipv4
             #self.socket.settimeout(5)
             self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -77,3 +78,28 @@ class Connection:
         except socket.error as msg:
             output(self.output_lock, "Connection error ipv6!\nTerminated.\nSocket.error : %s" % str(msg))
             output(self.output_lock, self.ipv6 + " " + str(self.port))
+
+def add_zero(ip):                                  # aggiunge 0 davanti
+    list = ip.split(".")
+
+    a = list[0].zfill(3)
+    b = list[1].zfill(3)
+    c = list[2].zfill(3)
+    d = list[3].zfill(3)
+
+    new_ip = a + "." + b + "." + c + "." + d
+
+    return new_ip
+
+
+def remove_zero(ip):                               # rimuove 0 davanti
+    list = ip.split(".")
+
+    a = int(list[0])
+    b = int(list[1])
+    c = int(list[2])
+    d = int(list[3])
+
+    new_ip = str(a) + "." + str(b) + "." + str(c) + "." + str(d)
+
+    return new_ip

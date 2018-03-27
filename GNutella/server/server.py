@@ -9,8 +9,8 @@ from helpermodules.commandFile import *
 from helpermodules.output_monitor import *
 from helper import controlMandator
 
-my_ipv4 = "172.016.004.001"
-my_ipv6 = "fc00:0000:0000:0000:0000:0000:0004:0001"
+my_ipv4 = "172.016.004.002"
+my_ipv6 = "fc00:0000:0000:0000:0000:0000:0004:0002"
 my_port = "06000"
 partialIpv4 = "172.016."
 partialIpv6 = "fc00:0000:0000:0000:0000:0000:"

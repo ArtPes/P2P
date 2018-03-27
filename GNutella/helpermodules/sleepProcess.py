@@ -28,6 +28,7 @@ else:
     dbClient.insertFilePktId(info)
 
 sleep(5)
+input("Press enter to exit")
 
 if sys.argv[2] == "3":
     dbClient.finishSearchFile(sys.argv[1])
