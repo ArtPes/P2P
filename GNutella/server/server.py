@@ -4,14 +4,16 @@ from random import randint
 import threading
 from dbmodules.dbconnection import *
 from helper import *
+from dbmodules.dbconnection import MongoConnection
 from helpermodules.commandFile import *
 from helpermodules.output_monitor import *
+from helper import controlMandator
 
-my_ipv4 = "192.168.000.021"
-my_ipv6 = "0000:0000:0000:0000:0000:0000:0000:0001"
+my_ipv4 = "172.016.004.001"
+my_ipv6 = "fc00:0000:0000:0000:0000:0000:0004:0001"
 my_port = "06000"
-partialIpv4 = "192.168."
-partialIpv6 = "0000:0000:0000:0000:0000:0000:"
+partialIpv4 = "172.016."
+partialIpv6 = "fc00:0000:0000:0000:0000:0000:"
 
 
 class Client(threading.Thread):
@@ -25,11 +27,11 @@ class Client(threading.Thread):
 
     def run(self):
         conn = self.client
-        cmd = conn.recv(self.size)
+        cmd = conn.recv(self.size).decode('ascii')
 
         if cmd[:4] == "QUER":
             output(self.output_lock, "\nMessagge received: ")
-            output(self.output_lock,cmd[0:4] + "\t" + cmd[4:20] + "\t" + cmd[20:35] + "\t" + cmd[36:75] + "\t" + cmd[76:80] + "\t" + cmd[80:82] + "\t" + cmd[82:102])
+            output(self.output_lock, cmd[0:4] + "\t" + cmd[4:20] + "\t" + cmd[20:35] + "\t" + cmd[36:75] + "\t" + cmd[76:80] + "\t" + cmd[80:82] + "\t" + cmd[82:102])
 
             ttl = int(cmd[80:82])
             notVisited = self.dbConnect.checkPktId(cmd[4:20])
@@ -44,7 +46,6 @@ class Client(threading.Thread):
                 for file in matchedList:
                     msg = "AQUE" + cmd[4:20] + my_ipv4 + "|" + my_ipv6 + my_port + file["md5"] + file["name"]
                     send_aque(self.output_lock, cmd[20:35], cmd[36:75], cmd[75:80], msg)
-
 
         elif cmd[:4] == "AQUE":
             output(self.output_lock, "\nMessagge received: " + cmd)
@@ -66,8 +67,7 @@ class Client(threading.Thread):
                 cmd = cmd[:80] + str(ttl - 1).zfill(2)  # abbasso di 1 il time to live se lo ritrasmetto
                 send_near(self.output_lock, neighbors, cmd)
             if notVisited:
-                if not controlMandator(self.address[0], cmd[20:35],
-                                       cmd[36:75]):  # controllo se il pachetto è del mandante
+                if not controlMandator(self.address[0], cmd[20:35], cmd[36:75]):  # controllo se il pachetto è del mandante
                     # TODO: devo mandare anche i miei vicini o ci pensano loro?
                     # TODO: devo inserirlo tra i meiei vicini o no?
                     msg = "ANEA" + cmd[4:20] + my_ipv4 + "|" + my_ipv6 + my_port
@@ -88,7 +88,7 @@ class Client(threading.Thread):
             try:
                 fileFd = open("fileCondivisi/" + file['name'], "rb")
             except Exception as e:
-                output(self.output_lock, 'Error: ' + e.message + "\n")
+                output(self.output_lock, 'Error: ' + str(e) + "\n")
             else:
                 tot_dim = os.stat("fileCondivisi/" + file['name']).st_size  # Calcolo delle dimesioni del file
                 n_chunks = int(tot_dim // 1024)  # Calcolo del numero di parti
@@ -106,8 +106,7 @@ class Client(threading.Thread):
 
                     buff = fileFd.read(chunk_size)  # Lettura del primo chunk
 
-                    msg = 'ARET' + str(n_chunks).zfill(
-                        6)  # Risposta alla richiesta di download, deve contenere ARET ed il numero di chunks che saranno inviati
+                    msg = 'ARET' + str(n_chunks).zfill(6)  # Risposta alla richiesta di download, deve contenere ARET ed il numero di chunks che saranno inviati
 
                     conn.sendall(msg)
 
@@ -115,7 +114,7 @@ class Client(threading.Thread):
 
                     while len(buff) == chunk_size:  # Invio dei chunks
                         try:
-                            msg = str(len(buff)).zfill(5) + buff
+                            msg = str(len(buff)).zfill(5).encode('utf-8') + buff
                             conn.sendall(msg)  # Invio di
                             chunks_sent += 1
 
@@ -129,7 +128,7 @@ class Client(threading.Thread):
                                    "Client_run-Error: Connection error due to the death of the peer!!!\n")
                     if len(buff) != 0:  # Invio dell'eventuale resto, se più piccolo di chunk_size
 
-                        msg = str(len(buff)).zfill(5) + buff
+                        msg = str(len(buff)).zfill(5).encode('utf-8') + buff
                         conn.sendall(msg)
 
                     output(self.output_lock, "\r\nUpload Completed")
@@ -164,12 +163,12 @@ class Server(threading.Thread):
         except socket.error as message:
             if self.server:
                 self.server.close()
-            output(self.output_lock, "Server_open_socket: Could not open socket: " + message)
+            output(self.output_lock, "Server_open_socket: Could not open socket: " + str(message))
             sys.exit(1)
         except socket.error as message:
             if self.server:
                 self.server.close()
-                output(self.output_lock, "Server_open_socket-Error: Could not open socket: " + message)
+                output(self.output_lock, "Server_open_socket-Error: Could not open socket: " + str(message))
             sys.exit(1)
 
     def run(self):
@@ -184,11 +183,11 @@ class Server(threading.Thread):
                     if s == self.server:
                         try:
                             # handle the server socket
-                            c = Client(self.server.accept(), self.dbConnect, self.output_lock)
+                            c = Client(self.server.accept(), "172.016.004.002", self.dbConnect, self.output_lock)
                             c.start()
                             self.threads.append(c)
                         except Exception as e:
-                            output(self.output_lock, "Server_run_socket: " + Exception + " / " + str(e))
+                            output(self.output_lock, "Server_run_socket: " + str(e) + " / " + str(e))
         except Exception as e:
             output(self.output_lock, 'Server_run_socket: ' + str(e))
 

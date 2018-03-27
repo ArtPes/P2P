@@ -1,7 +1,7 @@
 # coding=utf-8
 import os
 import hashlib
-import dbconnection
+import dbmodules.dbconnection
 
 def checktFiles():
     files_list = []
