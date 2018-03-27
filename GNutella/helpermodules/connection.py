@@ -5,6 +5,7 @@ import socket
 import random
 from helpermodules.output_monitor import output
 
+
 class Connection:
     socket = None
     ipv4 = None

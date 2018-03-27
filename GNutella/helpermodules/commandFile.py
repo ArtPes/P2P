@@ -3,11 +3,11 @@ import random, string, socket, errno, hashlib
 from helpermodules.output_monitor import *
 from helpermodules.connection import Connection
 
-my_ipv4 = "192.168.000.021"
-my_ipv6 = "0000:0000:0000:0000:0000:0000:0000:0001"
+my_ipv4 = "172.016.004.001"
+my_ipv6 = "fc00:0000:0000:0000:0000:0000:0004:0001"
 my_port = "06000"
-partialIpv4 = "192.168."
-partialIpv6 = "0000:0000:0000:0000:0000:0000:"
+partialIpv4 = "172.016."
+partialIpv6 = "fc00:0000:0000:0000:0000:0000:"
 
 
 # TTL = "02"
@@ -29,6 +29,7 @@ def add_neighbor(output_lock, db):
                 group_number = int(option)
             except ValueError:
                 output(output_lock, "A number is required")
+
 
     member_number = None
     output(output_lock, 'Insert member number:')
@@ -134,7 +135,7 @@ def send_near(output_lock, neighbors, msg):
             c.connect()
             peerSock = c.socket
 
-            peerSock.send(msg)
+            peerSock.send(msg.encode('utf-8'))
 
             output(output_lock, "\nMessage sent : ")
             output(output_lock,
@@ -160,7 +161,7 @@ def send_aque(output_lock, ipv4, ipv6, port, msg):
         c.connect()
         peerSock = c.socket
 
-        peerSock.send(msg)
+        peerSock.send(msg.encode('utf-8'))
 
         output(output_lock, "\nMessage sent: ")
         output(output_lock,
@@ -259,7 +260,7 @@ def get_file(output_lock, host):
     output(output_lock, msg[0:4] + "\t" + msg[4:36])
 
     try:
-        download.send(msg)  # Richiesta di download al peer
+        download.send(msg.encode('utf-8'))  # Richiesta di download al peer
         output(output_lock, 'Message sent, waiting for response...')
         response_message = download.recv(
             10)  # Risposta del peer, deve contenere il codice ARET seguito dalle parti del file

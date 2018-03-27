@@ -26,7 +26,7 @@ class Client(threading.Thread):
         self.output_lock = output_lock
 
     def run(self):
-        conn = self.client
+        conn = self.client[0]
         cmd = conn.recv(self.size).decode('ascii')
 
         if cmd[:4] == "QUER":
