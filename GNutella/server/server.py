@@ -2,15 +2,14 @@
 import socket, json, os, hashlib, select, sys
 from random import randint
 import threading
-from dbmodules.dbconnection import *
 from helper import *
 from dbmodules.dbconnection import MongoConnection
 from helpermodules.commandFile import *
 from helpermodules.output_monitor import *
 from helper import controlMandator
 
-my_ipv4 = "172.016.004.002"
-my_ipv6 = "fc00:0000:0000:0000:0000:0000:0004:0002"
+my_ipv4 = "172.016.004.001"
+my_ipv6 = "fc00:0000:0000:0000:0000:0000:0004:0001"
 my_port = "06000"
 partialIpv4 = "172.016."
 partialIpv6 = "fc00:0000:0000:0000:0000:0000:"
@@ -26,7 +25,7 @@ class Client(threading.Thread):
         self.output_lock = output_lock
 
     def run(self):
-        conn = self.client[0]
+        conn = self.client
         cmd = conn.recv(self.size).decode('ascii')
 
         if cmd[:4] == "QUER":
@@ -183,7 +182,8 @@ class Server(threading.Thread):
                     if s == self.server:
                         try:
                             # handle the server socket
-                            c = Client(self.server.accept(), "172.016.004.002", self.dbConnect, self.output_lock)
+                            conn, addr = self.server.accept()
+                            c = Client(conn, addr, self.dbConnect, self.output_lock)
                             c.start()
                             self.threads.append(c)
                         except Exception as e:

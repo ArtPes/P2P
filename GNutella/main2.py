@@ -12,7 +12,9 @@ db = MongoConnection()
 db.initializeFiles()
 counterProcesses = []
 
-proc = subprocess.Popen(args=["gnome-terminal", "--command=python ./server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
+proc = subprocess.Popen(args=["gnome-terminal", "--command=python3 server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
+
+#proc = subprocess.Popen(args=["xfce4-terminal", "-e", "bash -c 'python3 server/server.py;bash'"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
 
 counterProcesses.append(proc)
 ttl="02"
@@ -50,15 +52,15 @@ while True:
                     output(output_lock, "Insert the search string...")
                     searchStr = input()
                     pktId = id_generator(16)
-                    command = "./helpermodules/sleepProcess.py"
-                    #counterProcesses.append(subprocess.Popen(["python", command, str(int_option), str(ttl), searchStr, str(pktId)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
-                    counterProcesses.append(subprocess.Popen(["gnome-terminal", "--command=python " + command + " " + str(int_option) + " " + str(ttl) + " " + searchStr + " " + str(pktId)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
+                    command = "helpermodules/sleepProcess.py"
+                    counterProcesses.append(subprocess.Popen(["python3", command, str(int_option), str(ttl), searchStr, str(pktId)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
+                    #counterProcesses.append(subprocess.Popen(["xfce4-terminal", "-e", "bash -c '" + command + " " + str(int_option) + " " + str(ttl) + " " + searchStr + " " + str(pktId) + ";bash'"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
 
                     whatNow(output_lock, db, pktId)
 
                 elif int_option == 3:
                     command = "./helpermodules/sleepProcess.py"
-                    counterProcesses.append(subprocess.Popen(["python",  command, str(int_option), str(ttl)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
+                    counterProcesses.append(subprocess.Popen(["python3",  command, str(int_option), str(ttl)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
 
                 elif int_option == 4:
                     queries = db.getAllQueries()
