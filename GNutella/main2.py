@@ -62,7 +62,6 @@ while True:
                     command = "helpermodules/sleepProcess.py"
                     counterProcesses.append(subprocess.Popen(args=["gnome-terminal", "--command=python3 " + command + " " + str(int_option) + " " + str(ttl)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
 
-
                 elif int_option == 4:
                     queries = db.getAllQueries()
                     viewAllQueries(output_lock, queries)
