@@ -3,12 +3,20 @@ import random, string, socket, errno, hashlib
 from helpermodules.output_monitor import *
 from helpermodules.connection import Connection
 
-my_ipv4 = "172.016.004.001"
-my_ipv6 = "fc00:0000:0000:0000:0000:0000:0004:0001"
+import config
+
+my_ipv4 = config.CONFIG['my_ipv4']
+my_ipv6 = config.CONFIG['my_ipv6']
+my_port = config.CONFIG['my_port']
+partialIpv4 = config.CONFIG['partialIpv4']
+partialIpv6 = config.CONFIG['partialIpv6']
+'''
+my_ipv4 = "172.016.004.003"
+my_ipv6 = "fc00:0000:0000:0000:0000:0000:0004:0003"
 my_port = "06000"
 partialIpv4 = "172.016."
 partialIpv6 = "fc00:0000:0000:0000:0000:0000:"
-
+'''
 
 # TTL = "02"
 
