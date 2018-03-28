@@ -1,8 +1,6 @@
 # coding=utf-8
 import socket, json, os, hashlib, select, sys
-from random import randint
 import threading
-from helper import *
 from dbmodules.dbconnection import MongoConnection
 from helpermodules.commandFile import *
 from helpermodules.output_monitor import *
@@ -107,7 +105,7 @@ class Client(threading.Thread):
 
                     msg = 'ARET' + str(n_chunks).zfill(6)  # Risposta alla richiesta di download, deve contenere ARET ed il numero di chunks che saranno inviati
 
-                    conn.sendall(msg)
+                    conn.sendall(msg.encode('utf-8'))
 
                     output(self.output_lock, '\nUpload Message: ' + msg[0:4] + "\t" + msg[4:10])
 

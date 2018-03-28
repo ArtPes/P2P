@@ -53,14 +53,14 @@ while True:
                     searchStr = input()
                     pktId = id_generator(16)
                     command = "helpermodules/sleepProcess.py"
-                    counterProcesses.append(subprocess.Popen(["python3", command, str(int_option), str(ttl), searchStr, str(pktId)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
+                    counterProcesses.append(subprocess.Popen(args=["gnome-terminal", "--command=python3 " + command + " " + str(int_option)+ " " + str(ttl)+ " " + searchStr + " " + str(pktId)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
                     #counterProcesses.append(subprocess.Popen(["xfce4-terminal", "-e", "bash -c '" + command + " " + str(int_option) + " " + str(ttl) + " " + searchStr + " " + str(pktId) + ";bash'"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
 
                     whatNow(output_lock, db, pktId)
 
                 elif int_option == 3:
-                    command = "./helpermodules/sleepProcess.py"
-                    counterProcesses.append(subprocess.Popen(["python3",  command, str(int_option), str(ttl)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
+                    command = "helpermodules/sleepProcess.py"
+                    counterProcesses.append(subprocess.Popen(args=["gnome-terminal", "--command=python3 " + command + " " + str(int_option) + " " + str(ttl)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
 
                 elif int_option == 4:
                     queries = db.getAllQueries()
