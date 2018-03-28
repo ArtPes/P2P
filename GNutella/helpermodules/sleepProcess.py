@@ -6,6 +6,7 @@ import sys
 from helpermodules.commandFile import *
 import threading
 import itertools
+import time
 
 
 output_lock = threading.Lock()
@@ -16,8 +17,7 @@ dbClient = MongoConnection()
 
 neighbors = dbClient.getNeighbors()
 
-if sys.argv[1] == "4":
-
+if sys.argv[1] == "3":
     pktId = find_peers(output_lock, neighbors, ttl)
     dbClient.insertPeersPktId(pktId)
 

@@ -8,15 +8,17 @@ import subprocess
 output_lock = threading.Lock()
 #dbname = input('Inserisci nome db:')
 #db = MongoConnection('localhost', 27017, dbname)
+
 db = MongoConnection()
+
 db.initializeFiles()
 counterProcesses = []
 
-proc = subprocess.Popen(args=["gnome-terminal", "--command=python3 server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
+#proc = subprocess.Popen(args=["gnome-terminal", "--command=python3 server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
 
 #proc = subprocess.Popen(args=["xfce4-terminal", "-e", "bash -c 'python3 server/server.py;bash'"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
 
-counterProcesses.append(proc)
+#counterProcesses.append(proc)
 ttl="02"
 
 while True:
@@ -60,7 +62,7 @@ while True:
 
                 elif int_option == 3:
                     command = "helpermodules/sleepProcess.py"
-                    counterProcesses.append(subprocess.Popen(args=["gnome-terminal", "--command=python3 " + command + " " + str(int_option) + " " + str(ttl)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
+                    counterProcesses.append(subprocess.Popen(args=["xfce4-terminal", "--command=python3 " + command + " " + str(int_option) + " " + str(ttl)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
 
                 elif int_option == 4:
                     queries = db.getAllQueries()

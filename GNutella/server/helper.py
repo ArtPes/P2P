@@ -1,5 +1,6 @@
 from ipaddr import *
 
+
 def controlMandator(address, pktIpv4, pktIpv6):
     addrIpv4 = address.split(":")[-1]
     if len(addrIpv4) > 4:

@@ -10,13 +10,6 @@ my_ipv6 = config.CONFIG['my_ipv6']
 my_port = config.CONFIG['my_port']
 partialIpv4 = config.CONFIG['partialIpv4']
 partialIpv6 = config.CONFIG['partialIpv6']
-'''
-my_ipv4 = "172.016.004.003"
-my_ipv6 = "fc00:0000:0000:0000:0000:0000:0004:0003"
-my_port = "06000"
-partialIpv4 = "172.016."
-partialIpv6 = "fc00:0000:0000:0000:0000:0000:"
-'''
 
 # TTL = "02"
 
@@ -270,8 +263,7 @@ def get_file(output_lock, host):
     try:
         download.send(msg.encode('utf-8'))  # Richiesta di download al peer
         output(output_lock, 'Message sent, waiting for response...')
-        response_message = download.recv(
-            10)  # Risposta del peer, deve contenere il codice ARET seguito dalle parti del file
+        response_message = download.recv(10).decode('ascii')  # Risposta del peer, deve contenere il codice ARET seguito dalle parti del file
     except socket.error as e:
         output(output_lock, 'get_file-Error: ' + e.message)
     except Exception as e:
@@ -280,7 +272,6 @@ def get_file(output_lock, host):
         if response_message[:4] == 'ARET':
             n_chunks = response_message[4:10]  # Numero di parti del file da scaricare
             # tmp = 0
-
 
             fout = open('fileCondivisi/' + host['name'],
                         "wb")  # Apertura di un nuovo file in write byte mode (sovrascrive se già esistente)
@@ -302,12 +293,11 @@ def get_file(output_lock, host):
                     output(output_lock, 'Download started...')
 
                 try:
-                    chunk_length = recvall(download, 5)  # Ricezione dal peer la lunghezza della parte di file
-                    data = recvall(download, int(chunk_length))  # Ricezione dal peer la parte del file
+                    chunk_length = recvall(download, 5).decode('ascii')  # Ricezione dal peer la lunghezza della parte di file
+                    data = recvall(download, int(chunk_length))          # Ricezione dal peer la parte del file
 
                     # dlg.Update(i)
-                    update_progress(output_lock, i, n_chunks,
-                                    'Downloading ' + fout.name)  # Stampa a video del progresso dell'upload
+                    update_progress(output_lock, i, n_chunks,'Downloading ' + fout.name)  # Stampa a video del progresso dell'upload
 
                     fout.write(data)  # Scrittura della parte su file
                 except socket.error as e:
@@ -385,7 +375,7 @@ def viewAllQueries(output_lock, queries):
                         if checkPoint == True:
                             try:
                                 output(output_lock, "Choose the file to download or \"c\" to step back:")
-                                option = raw_input()
+                                option = input()
                             except SyntaxError:
                                 option = None
 
