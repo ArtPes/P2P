@@ -3,9 +3,12 @@ import socket, json, os, hashlib, select, sys
 from random import randint
 import threading
 from helper import *
-from dbmodules.dbconnection import MongoConnection
-from helpermodules.commandFile import *
-from helpermodules.output_monitor import *
+import sys
+sys.path.append('/home/luca/Scrivania/P2P/GNutella/dbmodules')
+from dbconnection import MongoConnection
+sys.path.append('/home/luca/Scrivania/P2P/GNutella/helpermodules')
+from commandFile import *
+from output_monitor import *
 #from helper import controlMandator
 
 import config
@@ -93,11 +96,11 @@ class Client(threading.Thread):
             file = self.dbConnect.getFile(md5Remoto)
             fileFd = None
             try:
-                fileFd = open("fileCondivisi/" + file['name'], "rb")
+                fileFd = open("../fileCondivisi/" + file['name'], "rb")
             except Exception as e:
                 output(self.output_lock, 'Error: ' + str(e) + "\n")
             else:
-                tot_dim = os.stat("fileCondivisi/" + file['name']).st_size  # Calcolo delle dimesioni del file
+                tot_dim = os.stat("../fileCondivisi/" + file['name']).st_size  # Calcolo delle dimesioni del file
                 n_chunks = int(tot_dim // 1024)  # Calcolo del numero di parti
                 resto = tot_dim % 1024  # Eventuale resto
                 if resto != 0.0:

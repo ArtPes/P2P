@@ -1,6 +1,8 @@
 # coding=utf-8
 from pymongo import MongoClient
-from dbmodules.checkFiles import *
+import sys
+sys.path.append('/home/luca/Scrivania/P2P/GNutella/dbmodules')
+from checkFiles import *
 import re
 
 class MongoConnection():

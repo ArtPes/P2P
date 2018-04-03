@@ -3,7 +3,9 @@
 # socket.inet_pton(socket.AF_INET6, some_string)
 import socket
 import random
-from helpermodules.output_monitor import output
+import sys
+sys.path.append('/home/luca/Scrivania/P2P/GNutella/helpermodules')
+from output_monitor import output
 
 
 class Connection:

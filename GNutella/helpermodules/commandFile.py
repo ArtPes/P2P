@@ -1,8 +1,10 @@
 # coding=utf-8
 import random, string, socket, errno, hashlib
-from helpermodules.output_monitor import *
-from helpermodules.connection import Connection
-
+import sys
+sys.path.append('/home/luca/Scrivania/P2P/GNutella/helpermodules')
+from output_monitor import *
+from connection import Connection
+sys.path.append('/home/luca/Scrivania/P2P/GNutella')
 import config
 
 my_ipv4 = config.CONFIG['my_ipv4']
@@ -282,7 +284,7 @@ def get_file(output_lock, host):
             # tmp = 0
 
 
-            fout = open('fileCondivisi/' + host['name'],
+            fout = open('../fileCondivisi/' + host['name'],
                         "wb")  # Apertura di un nuovo file in write byte mode (sovrascrive se già esistente)
 
             n_chunks = int(str(n_chunks).lstrip('0'))  # Rimozione gli 0 dal numero di parti e converte in intero
@@ -351,7 +353,7 @@ def viewAllQueries(output_lock, queries):
 
             if "donors" in file:
                 output(output_lock,
-                       str(idx) + ": Query string (" + file['queryStr'] + ") with " + str(len(file['donors'])) + "answers")
+                       str(idx) + ": Query string (" + file['queryStr'] + ") with " + str(len(file['donors'])) + " answers")
             else:
                 output(output_lock, str(idx) + ": Query string (" + file['queryStr'] + ") with none answers")
         output(output_lock, "\nSelect one to see the peers or \"c\" to return to the Main Menu:")
@@ -379,8 +381,7 @@ def viewAllQueries(output_lock, queries):
                             checkPoint = False
 
                         for idx2, file in enumerate(host):
-                            output(output_lock, "" + str(idx2 + 1) + ": " + host[idx0]['name'] + " from " + host[idx0][
-                                'ipv4'] + " | " + host[idx0]['ipv6'] + " | " + host[idx0]['port'])
+                            output(output_lock, "" + str(idx2 + 1) + ": " + host[idx0]['name'] + " from " + host[idx0]['ipv4'] + " | " + host[idx0]['ipv6'] + " | " + host[idx0]['port'])
 
                         if checkPoint == True:
                             try:
@@ -406,5 +407,6 @@ def viewAllQueries(output_lock, queries):
                                                    'ipv6'] + " | " + file['port'])
                                         get_file(output_lock, file)
                         else:
-                            output(output_lock, "No peers answered the query")
+                            output(output_lock, "No peers answered the query\n\n")
+                            checkPoint = True; ############
                             break

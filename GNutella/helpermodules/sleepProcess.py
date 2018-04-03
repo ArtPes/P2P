@@ -1,9 +1,11 @@
 from time import sleep
-from dbmodules.dbconnection import *
+import sys
+sys.path.append('/home/luca/Scrivania/P2P/GNutella/dbmodules')
+from dbconnection import *
 #from multiprocessing import Process
 import os, signal
-import sys
-from helpermodules.commandFile import *
+sys.path.append('/home/luca/Scrivania/P2P/GNutella/helpermodules')
+from commandFile import *
 import threading
 import itertools
 
@@ -16,7 +18,7 @@ dbClient = MongoConnection()
 
 neighbors = dbClient.getNeighbors()
 
-if sys.argv[1] == "4":
+if sys.argv[1] == "3":
 
     pktId = find_peers(output_lock, neighbors, ttl)
     dbClient.insertPeersPktId(pktId)

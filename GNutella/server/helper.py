@@ -1,3 +1,5 @@
+import sys;
+sys.path.append('/home/luca/Scrivania/P2P/GNutella/libraryIP')
 from ipaddr import *
 
 def controlMandator(address, pktIpv4, pktIpv6):
