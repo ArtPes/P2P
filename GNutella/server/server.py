@@ -1,6 +1,5 @@
 # coding=utf-8
 import socket, json, os, hashlib, select, sys
-from random import randint
 import threading
 from helper import *
 import sys
@@ -18,13 +17,7 @@ my_ipv6 = config.CONFIG['my_ipv6']
 my_port = config.CONFIG['my_port']
 partialIpv4 = config.CONFIG['partialIpv4']
 partialIpv6 = config.CONFIG['partialIpv6']
-'''
-my_ipv4 = "172.016.004.003"
-my_ipv6 = "fc00:0000:0000:0000:0000:0000:0004:0003"
-my_port = "06000"
-partialIpv4 = "172.016."
-partialIpv6 = "fc00:0000:0000:0000:0000:0000:"
-'''
+
 
 class Client(threading.Thread):
     def __init__(self, client, address, dbConnect, output_lock):

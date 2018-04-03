@@ -2,6 +2,7 @@ import sys;
 sys.path.append('/home/luca/Scrivania/P2P/GNutella/libraryIP')
 from ipaddr import *
 
+
 def controlMandator(address, pktIpv4, pktIpv6):
     addrIpv4 = address.split(":")[-1]
     if len(addrIpv4) > 4:

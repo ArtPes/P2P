@@ -8,6 +8,7 @@ sys.path.append('/home/luca/Scrivania/P2P/GNutella/helpermodules')
 from commandFile import *
 import threading
 import itertools
+import time
 
 
 output_lock = threading.Lock()
@@ -19,7 +20,6 @@ dbClient = MongoConnection()
 neighbors = dbClient.getNeighbors()
 
 if sys.argv[1] == "3":
-
     pktId = find_peers(output_lock, neighbors, ttl)
     dbClient.insertPeersPktId(pktId)
 
