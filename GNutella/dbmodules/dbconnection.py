@@ -1,7 +1,7 @@
 # coding=utf-8
 from pymongo import MongoClient
 import sys
-sys.path.append('/home/luca/Scrivania/P2P/GNutella/dbmodules')
+sys.path.append('/home/art/PycharmProjects/P2P/GNutella/dbmodules')
 from checkFiles import *
 import re
 

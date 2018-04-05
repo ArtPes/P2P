@@ -1,10 +1,11 @@
 # coding=utf-8
 import random, string, socket, errno, hashlib
 import sys
-sys.path.append('/home/luca/Scrivania/P2P/GNutella/helpermodules')
+
+sys.path.append('/home/art/PycharmProjects/P2P/GNutella/helpermodules')
 from output_monitor import *
 from connection import Connection
-sys.path.append('/home/luca/Scrivania/P2P/GNutella')
+sys.path.append('/home/art/PycharmProjects/P2P/GNutella')
 import config
 
 my_ipv4 = config.CONFIG['my_ipv4']
@@ -73,7 +74,7 @@ def add_neighbor(output_lock, db):
 
     if not found:
         db.db.neighbors.insert_one({"ipv4": partialIpv4 + str(group_number).zfill(3) + "." + str(member_number).zfill(3),
-                                    "ipv6": partialIpv6 + str(group_number).zfill(4) + "." + str(
+                                    "ipv6": partialIpv6 + str(group_number).zfill(4) + ":" + str(
                                      member_number).zfill(4),
                                     "port": str(port_number).zfill(5)})
         output(output_lock,
@@ -104,7 +105,7 @@ def set_ttl(output_lock):
 
 def find_file(output_lock, neighbors, pktId, searchStr, TTL):
 
-    msg = "QUER" + pktId + my_ipv4 + '|' + my_ipv6 + my_port + str(TTL).zfill(2) + searchStr.ljust(20)###########
+    msg = "QUER" + pktId + my_ipv4 + '|' + my_ipv6 + my_port + str(TTL).zfill(2) + searchStr#.ljust(20)###########
 
     send_near(output_lock, neighbors, msg)
 
@@ -275,8 +276,7 @@ def get_file(output_lock, host):
             n_chunks = response_message[4:10]  # Numero di parti del file da scaricare
             # tmp = 0
 
-            fout = open('../fileCondivisi/' + host['name'],
-                        "wb")  # Apertura di un nuovo file in write byte mode (sovrascrive se già esistente)
+            fout = open('./fileCondivisi/' + host['name'],"wb")  # Apertura di un nuovo file in write byte mode (sovrascrive se già esistente)
 
             n_chunks = int(str(n_chunks).lstrip('0'))  # Rimozione gli 0 dal numero di parti e converte in intero
 
@@ -371,7 +371,7 @@ def viewAllQueries(output_lock, queries):
                             checkPoint = False
 
                         for idx2, file in enumerate(host):
-                            output(output_lock, "" + str(idx2 + 1) + ": " + host[idx0]['name'] + " from " + host[idx0]['ipv4'] + " | " + host[idx0]['ipv6'] + " | " + host[idx0]['port'])
+                            output(output_lock, "" + str(idx2 + 1) + ": " + host[idx2]['name'] + " from " + host[idx2]['ipv4'] + " | " + host[idx2]['ipv6'] + " | " + host[idx2]['port'])
 
                         if checkPoint == True:
                             try:

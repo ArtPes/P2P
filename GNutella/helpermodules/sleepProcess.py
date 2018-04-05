@@ -1,10 +1,11 @@
 from time import sleep
 import sys
-sys.path.append('/home/luca/Scrivania/P2P/GNutella/dbmodules')
+
+sys.path.append('/home/art/PycharmProjects/P2P/GNutella/dbmodules')
 from dbconnection import *
 #from multiprocessing import Process
 import os, signal
-sys.path.append('/home/luca/Scrivania/P2P/GNutella/helpermodules')
+sys.path.append('/home/art/PycharmProjects/P2P/GNutella/helpermodules')
 from commandFile import *
 import threading
 import itertools

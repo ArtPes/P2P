@@ -1,5 +1,5 @@
-import sys;
-sys.path.append('/home/luca/Scrivania/P2P/GNutella/libraryIP')
+import sys
+sys.path.append('/home/art/PycharmProjects/P2P/GNutella/libraryIP')
 from ipaddr import *
 
 

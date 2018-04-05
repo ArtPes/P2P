@@ -16,7 +16,7 @@ counterProcesses = []
 
 #proc = subprocess.Popen(["python", "./server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
 #proc = subprocess.Popen(["gnome-terminal", "--command=python ./server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
-#proc = subprocess.Popen(args=["gnome-terminal", "--command=python3 server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
+proc = subprocess.Popen(args=["gnome-terminal", "--command=python3 server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
 
 
 #counterProcesses.append(proc)
@@ -60,7 +60,7 @@ while True:
 
                     command = "./helpermodules/sleepProcess.py"
                     #counterProcesses.append(subprocess.Popen(["python", command, str(int_option), str(ttl), searchStr, str(pktId)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
-                    counterProcesses.append(subprocess.Popen(["gnome-terminal", "--command=python " + command + " " + str(int_option) + " " + str(ttl) + " " + searchStr + " " + str(pktId)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
+                    counterProcesses.append(subprocess.Popen(["gnome-terminal", "--command=python3 " + command + " " + str(int_option) + " " + str(ttl) + " " + searchStr + " " + str(pktId)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
 
                     whatNow(output_lock, db, pktId)
 

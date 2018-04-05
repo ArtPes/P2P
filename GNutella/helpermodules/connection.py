@@ -4,7 +4,7 @@
 import socket
 import random
 import sys
-sys.path.append('/home/luca/Scrivania/P2P/GNutella/helpermodules')
+sys.path.append('/home/art/PycharmProjects/P2P/GNutella/helpermodules')
 from output_monitor import output
 
 
