@@ -22,7 +22,7 @@ In questo sistema non esiste una directory centralizzata che tiene traccia dei f
 
 ### Prerequisites
 
-Nel file _config.py_ impostare  il proprio IPv4 e IPv6.
+Nel file _config.py_ impostare  il proprio IPv4 e IPv6. Per funzionare il programma richiede che sul pc sia installato e attivo il DBMS MongoDB, inoltre occorre la libreria python _pymongo_ che consente al programma di interfacciarsi con il DB.
 
 ### Running
 
