@@ -105,8 +105,8 @@ def set_ttl(output_lock):
 
 def find_file(output_lock, neighbors, pktId, searchStr, TTL):
 
-    msg = "QUER" + pktId + my_ipv4 + '|' + my_ipv6 + my_port + str(TTL).zfill(2) + searchStr#.ljust(20)###########
-
+    msg = "QUER" + pktId + my_ipv4 + '|' + my_ipv6 + my_port + str(TTL).zfill(2) + searchStr.ljust(20,' ')###########
+    #print(msg)
     send_near(output_lock, neighbors, msg)
 
     return {"pktId": pktId, "queryStr": searchStr}

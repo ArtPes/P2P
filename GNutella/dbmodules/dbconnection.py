@@ -51,6 +51,7 @@ class MongoConnection():
 
 
     def insertPeersPktId(self, pktId):
+        #check = self.db.searchPeers.find({"pktId": pktId)
         result = self.db.searchPeers.insert_one({"pktId": pktId, "searching": True})
 
     def finishSearchFile(self, pktId):

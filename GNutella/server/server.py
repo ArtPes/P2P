@@ -44,7 +44,7 @@ class Client(threading.Thread):
                 send_near(self.output_lock, neighbors, cmd)
 
             if notVisited:  # se non  è passato di qua cerco nei miei file e contatto il proprietario della query
-                queryStr = cmd[82:102]
+                queryStr = cmd[82:102].strip(' ')
                 matchedList = self.dbConnect.getMatchedFiles(queryStr)
                 for file in matchedList:
                     msg = "AQUE" + cmd[4:20] + my_ipv4 + "|" + my_ipv6 + my_port + file["md5"] + file["name"]
