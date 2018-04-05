@@ -26,7 +26,8 @@ class Connection:
         Da utilizzare per le richieste alle directory
         """
         self.ipv4 = remove_zero(self.ipv4)
-        if True:
+        #if True:
+        if random.choice((True, False)):
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)                 # creazione socket ipv4
             #self.socket.settimeout(5)
             self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

@@ -18,6 +18,20 @@ Eseguire dal terminale:
 
 
 ## Gnutella (Directory Distribuita)
+In questo sistema non esiste una directory centralizzata che tiene traccia dei file che i singoli peer mettono a disposizione. Ogni peer conosce un numero limitato di vicini iniziali, ed ha la possibilità di trovarne altri successivamente. Quando un peer decide di cercare un file, invia un messaggio QUER ai suoi vicini che, a seconda del valore del TTL (Time To Live) decideranno di inoltrarlo ai rispettivi vicini e così via, fino a  quando il messaggio non arriverà a un peer che possiede il file. Quest'ultimo provvederà a contattare il peer iniziale,  notificandogli la disponibilità del file in questione.
+
+### Prerequisites
+
+Nel file _config.py_ impostare  il proprio IPv4 e IPv6.
+
+### Running
+
+Eseguire dal terminale:
+```
+ cd P2P/GNutella
+ python3 main2.py
+```
+
 
 ## Kazaa (Directory Gerarchica)
 
