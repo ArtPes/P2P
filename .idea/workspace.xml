@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a6617457-77fa-49bc-8206-7e408faaadaa" name="Default" comment="fix generale">
+    <list default="true" id="a6617457-77fa-49bc-8206-7e408faaadaa" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/GNutella/config.py" afterPath="$PROJECT_DIR$/GNutella/config.py" />
-      <change beforePath="$PROJECT_DIR$/GNutella/dbmodules/dbconnection.py" afterPath="$PROJECT_DIR$/GNutella/dbmodules/dbconnection.py" />
-      <change beforePath="$PROJECT_DIR$/GNutella/fileCondivisi/galassia.jpeg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/GNutella/helpermodules/commandFile.py" afterPath="$PROJECT_DIR$/GNutella/helpermodules/commandFile.py" />
-      <change beforePath="$PROJECT_DIR$/GNutella/helpermodules/connection.py" afterPath="$PROJECT_DIR$/GNutella/helpermodules/connection.py" />
-      <change beforePath="$PROJECT_DIR$/GNutella/helpermodules/sleepProcess.py" afterPath="$PROJECT_DIR$/GNutella/helpermodules/sleepProcess.py" />
-      <change beforePath="$PROJECT_DIR$/GNutella/main2.py" afterPath="$PROJECT_DIR$/GNutella/main2.py" />
-      <change beforePath="$PROJECT_DIR$/GNutella/server/helper.py" afterPath="$PROJECT_DIR$/GNutella/server/helper.py" />
-      <change beforePath="$PROJECT_DIR$/GNutella/server/server.py" afterPath="$PROJECT_DIR$/GNutella/server/server.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -385,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521126595113</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix generale">
+      <created>1522917795641</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1522917795641</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -445,12 +443,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix generale" />
     <MESSAGE value="fix generale di varie print" />
     <MESSAGE value="- pulizia" />
     <MESSAGE value="- configurazione iniziale + ascii art perchè fa figo" />
     <MESSAGE value="another fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="another fix" />
+    <MESSAGE value="fix generale" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix generale" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
