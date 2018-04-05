@@ -51,6 +51,8 @@ while True:
                     add_neighbor(output_lock, db)
 
                 elif int_option == 2:
+                    #Imposto manualmente ttl (di solito 2)
+                    ttl = set_ttl(output_lock)
 
                     output(output_lock, "Insert the search string...")
                     searchStr = input()
@@ -63,8 +65,10 @@ while True:
                     whatNow(output_lock, db, pktId)
 
                 elif int_option == 3:
+                    ttl = set_ttl(output_lock)
+
                     command = "helpermodules/sleepProcess.py"
-                    counterProcesses.append(subprocess.Popen(args=["xfce4-terminal", "--command=python3 " + command + " " + str(int_option) + " " + str(ttl)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
+                    counterProcesses.append(subprocess.Popen(args=["gnome-terminal", "--command=python3 " + command + " " + str(int_option) + " " + str(ttl)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp))
 
                 elif int_option == 4:
                     queries = db.getAllQueries()
