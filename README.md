@@ -28,6 +28,7 @@ Nel file _config.py_ impostare  il proprio IPv4 e IPv6. Per funzionare il progra
 
 Eseguire dal terminale:
 ```
+ sudo service mongd start
  cd P2P/GNutella
  python3 main2.py
 ```
