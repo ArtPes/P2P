@@ -1,26 +1,25 @@
 import threading, os, signal
-
 from dbmodules.dbconnection import MongoConnection
 from helpermodules.commandFile import *
 from helpermodules.output_monitor import output
 import subprocess
 
 output_lock = threading.Lock()
-#dbname = input('Inserisci nome db:')
-#db = MongoConnection('localhost', 27017, dbname)
+# dbname = input('Inserisci nome db:')
+# db = MongoConnection('localhost', 27017, dbname)
 
 db = MongoConnection()
-
-db.initializeFiles()
+db.refreshDB()                  # ripulisco tutto il DB
+db.initializeFiles()            # inserisco i file contenuti in "fileCodivisi" nel db
 counterProcesses = []
 
-#proc = subprocess.Popen(["python", "./server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
-#proc = subprocess.Popen(["gnome-terminal", "--command=python ./server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
+# proc = subprocess.Popen(["python", "./server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
+# proc = subprocess.Popen(["gnome-terminal", "--command=python ./server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
 proc = subprocess.Popen(args=["gnome-terminal", "--command=python3 server/server.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, preexec_fn=os.setpgrp)
 
 
-#counterProcesses.append(proc)
-ttl="02"
+# counterProcesses.append(proc)
+# ttl="02"
 
 while True:
     output(output_lock, "\nSelect one of the following options:")

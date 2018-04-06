@@ -1,20 +1,28 @@
 # coding=utf-8
 from pymongo import MongoClient
 import sys
+
 sys.path.append('/home/art/PycharmProjects/P2P/GNutella/dbmodules')
 from checkFiles import *
 import re
 
+
 class MongoConnection():
-    def __init__ (self, host="localhost", port=27017, db_name='gnutella', conn_type="local", username='', password=''):
+    def __init__(self, host="localhost", port=27017, db_name='gnutella', conn_type="local", username='', password=''):
         self.host = host
         self.port = port
         try:
             self.conn = MongoClient()
             self.db = self.conn[db_name]
-        except :
+        except:
             print("Could not connect to server")
 
+    def refreshDB(self):
+        self.db.files.drop()
+        self.db.neighbors.drop()
+        self.db.searchFiles.drop()
+        self.db.searchPeers.drop()
+        self.db.registerPktIds.drop()
 
 
     def initializeFiles(self):
@@ -32,8 +40,6 @@ class MongoConnection():
             except:
                 print("errore query find " + file)
 
-
-
     def getNeighbors(self, ipv4='', ipv6=''):
         cursor = self.db.neighbors.find({"ipv4": {"$ne": ipv4}, "ipv6": {"$ne": ipv6}})
         list_peers = []
@@ -47,11 +53,11 @@ class MongoConnection():
         return list_peers
 
     def insertFilePktId(self, info):
-        result = self.db.searchFiles.insert_one({"pktId": info["pktId"], "searching": True, "queryStr": info["queryStr"]})
-
+        result = self.db.searchFiles.insert_one(
+            {"pktId": info["pktId"], "searching": True, "queryStr": info["queryStr"]})
 
     def insertPeersPktId(self, pktId):
-        #check = self.db.searchPeers.find({"pktId": pktId)
+        # check = self.db.searchPeers.find({"pktId": pktId)
         result = self.db.searchPeers.insert_one({"pktId": pktId, "searching": True})
 
     def finishSearchFile(self, pktId):
@@ -92,7 +98,7 @@ class MongoConnection():
         return True
 
     def getMatchedFiles(self, queryStr):
-        regx = re.compile(queryStr , re.IGNORECASE)
+        regx = re.compile(queryStr, re.IGNORECASE)
         cursor = self.db.files.find({"name": {'$in': [regx]}})
         listMatched = []
         for document in cursor:
@@ -108,18 +114,21 @@ class MongoConnection():
             {"pktId": pktId, "searching": True},
             {
                 "$push": {
-                    "donors": {"ipv4": receivedMsg[16:31], "ipv6": receivedMsg[32:71], "port": str(int(receivedMsg[71:76])), "md5": receivedMsg[76:108],
+                    "donors": {"ipv4": receivedMsg[16:31], "ipv6": receivedMsg[32:71],
+                               "port": str(int(receivedMsg[71:76])), "md5": receivedMsg[76:108],
                                "name": receivedMsg[108:].strip(" ")}
                 }
             }
         )
 
-    def handleNearAck(self, receivedMsg):
+    def handleNearAck(self, receivedMsg):  # aggiunta neighbors
         pktId = receivedMsg[:16]
         cursor = self.db.searchPeers.find({"pktId": pktId, "searching": True})
-        neighbors = self.db.neighbors.find({"ipv4": receivedMsg[16:31], "ipv6": receivedMsg[32:71], "port": str(int(receivedMsg[71:76])).zfill(4)})
-        if cursor.count() == 1 and neighbors.count() == 0:
-            result = self.db.neighbors.insert_one({"ipv4": receivedMsg[16:31], "ipv6": receivedMsg[32:71], "port": str(int(receivedMsg[71:76])).zfill(4)})
+        neighbors = self.db.neighbors.find(
+            {"ipv4": receivedMsg[16:31], "ipv6": receivedMsg[32:71], "port": str(int(receivedMsg[71:76])).zfill(4)})
+        if cursor.count() == 1 and neighbors.count() == 0:  # check se il neighbor non è presente nel db
+            result = self.db.neighbors.insert_one(
+                {"ipv4": receivedMsg[16:31], "ipv6": receivedMsg[32:71], "port": str(int(receivedMsg[71:76])).zfill(4)})
 
     def getFile(self, md5Remoto):
         cursor = self.db.files.find_one({"md5": md5Remoto})
@@ -132,4 +141,3 @@ class MongoConnection():
     def getAllQueries(self):
         cursor = self.db.searchFiles.find()
         return list(cursor)
-
