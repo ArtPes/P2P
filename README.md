@@ -34,11 +34,6 @@ Eseguire dal terminale:
 ```
 
 
-## Kazaa (Directory Gerarchica)
-
-## BitTorrent (Parti Parallele)
-
-
 ## Authors :trollface:
 
 * **ArtPes** - (https://github.com/ArtPes)
